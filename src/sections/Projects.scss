@@ -1,6 +1,5 @@
-@import '../styles/variables';
-@import '../styles/animations';
-
+@use '../styles/variables' as *;
+@use '../styles/animations' as *;
 .projects-section {
   padding: 120px 0;
   background-color: $bg-dark;
