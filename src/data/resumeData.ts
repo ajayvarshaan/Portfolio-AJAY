@@ -49,86 +49,86 @@ export const resumeData = {
       category: "Internship"
     },
     {
-      name: "Microsoft Power BI Data Analyst",
-      issuer: "Microsoft",
+      name: "Maiyyam Daya Analytics Traineeship",
+      issuer: "Maiyyam",
       date: "2024",
       image: da1, 
       category: "Data Analytics"
     },
     {
-      name: "SQL Basic & Intermediate",
-      issuer: "HackerRank",
+      name: "Letter of Recommendation - Data Analyst(Maiyyam)",
+      issuer: "Maiyyam",
       date: "2023",
       image: da2,
       category: "Data Analytics"
     },
     {
-      name: "Data Visualization with Tableau",
-      issuer: "Coursera",
-      date: "2023",
+      name: "Learning Power Bi Desktop",
+      issuer: "LinkedIn Learning",
+      date: "2024",
       image: da3,
       category: "Data Analytics"
     },
     {
-      name: "Google Data Analytics Professional",
-      issuer: "Google",
-      date: "2023",
+      name: "Complete Data Analytics Bootcamp From Basic to Advanced",
+      issuer: "Udemy",
+      date: "2026",
       image: da4,
       category: "Data Analytics"
     },
     {
       name: "Frontend Development using React",
-      issuer: "Infosys Springboard",
-      date: "2023",
+      issuer: "Sri Ramakrishna Engineering College",
+      date: "2024",
       image: web1,
       category: "Web Development"
     },
     {
-      name: "JavaScript Algorithms & Data Structures",
-      issuer: "FreeCodeCamp",
-      date: "2023",
+      name: "HTML Essentials Training",
+      issuer: "LinkedIn Learning",
+      date: "2024",
       image: web2,
       category: "Web Development"
     },
     {
-      name: "Responsive Web Design",
-      issuer: "FreeCodeCamp",
-      date: "2022",
+      name: "JavaScript Essentials Training",
+      issuer: "LinkedIn Learning",
+      date: "2024",
       image: web3,
       category: "Web Development"
     },
     {
-      name: "Full Stack Development Bootcamp",
-      issuer: "Udemy",
-      date: "2023",
+      name: "Learning the JavaScript Language",
+      issuer: "LinkedIn Learning",
+      date: "2024",
       image: web4,
       category: "Web Development"
     },
     {
-      name: "React Native Specialization",
-      issuer: "Coursera",
-      date: "2024",
+      name: " CSS Essentials Training",
+      issuer: "Udemy",
+      date: "2025",
       image: web5,
       category: "Web Development"
     },
     {
-      name: "Modern HTML & CSS From The Beginning",
+      name: "Complete Web & Mobile Designer : UI/UX, Figma, +more",
       issuer: "Udemy",
       date: "2022",
       image: web6,
       category: "Web Development"
     },
     {
-      name: "TypeScript for Beginners",
-      issuer: "Udemy",
+      name: "React Bootcamp",
+      issuer: "Lets Upgrade",
       date: "2024",
       image: web7,
       category: "Web Development"
     },
     {
-      name: "UI/UX Design Fundamentals",
-      issuer: "Google",
-      date: "2023",
+      name: "Full Stack(MERN) Web Development",
+      issuer: "Maiyyam",
+      date: "2025",
       image: web8,
       category: "Web Development"
     }
