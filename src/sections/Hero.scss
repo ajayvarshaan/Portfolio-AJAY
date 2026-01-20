@@ -1,0 +1,165 @@
+@import '../styles/variables';
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  overflow: hidden;
+
+  .hero-bg-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($primary-color, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+
+    .greeting {
+      color: $primary-color;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .name-gradient {
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, white 30%, $primary-color 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+
+      @media (min-width: 900px) {
+        font-size: 4.5rem;
+      }
+    }
+
+    .role {
+      color: $text-secondary;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+
+      @media (min-width: 900px) {
+        font-size: 2rem;
+      }
+    }
+
+    .description {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .action-buttons {
+      .primary-btn {
+        background: linear-gradient(45deg, $primary-color, ($primary-color, 15%));
+        color: #000;
+        font-weight: 700;
+        padding: 12px 32px;
+        border-radius: 8px;
+        text-transform: none;
+        font-size: 1rem;
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 20px rgba($primary-color, 0.4);
+        }
+      }
+
+      .social-icon {
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+          border-color: $primary-color;
+          background: rgba($primary-color, 0.1);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  .profile-image-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+    margin-top: 40px;
+
+    @media (min-width: 900px) {
+      margin-top: 0;
+      width: 400px;
+      height: 400px;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      position: relative;
+      z-index: 3;
+      border: 4px solid #0a1929;
+      animation: floatImage 4s ease-in-out infinite;
+    }
+
+    .animated-border-glow {
+      position: absolute;
+      top: -5%;
+      left: -5%;
+      width: 110%;
+      height: 110%;
+      border-radius: 50%;
+      z-index: 1;
+      background: conic-gradient(
+        from 0deg at 50% 50%,
+        $primary-color,
+        $secondary-color,
+        $primary-color
+      );
+      filter: blur(25px);
+      opacity: 0.6;
+      animation: rotateGlow 6s linear infinite;
+    }
+  }
+}
+
+@keyframes floatImage {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

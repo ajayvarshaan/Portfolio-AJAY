@@ -1,0 +1,19 @@
+$primary-color: #00bcd4;
+$secondary-color: #9c27b0;
+$bg-dark: #0a1929;
+$bg-card: rgba(255, 255, 255, 0.05);
+$text-primary: #ffffff;
+$text-secondary: #b0bec5;
+
+@mixin glass-effect {
+  background: $bg-card;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

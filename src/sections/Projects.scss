@@ -1,0 +1,136 @@
+@import '../styles/variables';
+@import '../styles/animations';
+
+.projects-section {
+  padding: 120px 0;
+  background-color: $bg-dark;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+    font-weight: 800;
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .projects-grid {
+    .grid-item {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+      @include animate-stagger(10, 0.15s);
+    }
+  }
+
+  .project-card {
+    @include glass-morphism;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: transparent;
+
+    &:hover {
+      transform: translateY(-12px) scale(1.02);
+
+      .card-gradient-border {
+        opacity: 1;
+      }
+
+      .icon-wrapper {
+        background: $primary-color;
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+
+    .card-gradient-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-color, $secondary-color);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .content-area {
+      padding: 32px;
+      flex-grow: 1;
+    }
+
+    .icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: $primary-color;
+      transition: all 0.3s ease;
+    }
+
+    .project-title {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .project-desc {
+      color: $text-secondary;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .tech-chip {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: $text-secondary;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.75rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba($primary-color, 0.15);
+          color: $primary-color;
+          border-color: $primary-color;
+        }
+      }
+    }
+
+    .action-area {
+      padding: 0 32px 32px 32px;
+
+      .demo-btn {
+        background: rgba(255, 255, 255, 0.05);
+        color: $primary-color;
+        border: 1px solid rgba($primary-color, 0.3);
+        text-transform: none;
+        font-weight: 600;
+        padding: 10px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: $primary-color;
+          color: #fff;
+          box-shadow: 0 0 15px rgba($primary-color, 0.4);
+        }
+      }
+    }
+  }
+}

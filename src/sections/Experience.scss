@@ -1,0 +1,66 @@
+@use '../styles/variables' as *;
+@use '../styles/animations' as *;
+
+.experience-section {
+  padding: 100px 0;
+
+  .section-title {
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: $primary-color;
+      border-radius: 2px;
+    }
+  }
+
+  .experience-card {
+    @include glass-effect;
+    padding: 30px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: $primary-color;
+    }
+
+    .card-header {
+      margin-bottom: 20px;
+      
+      .duration {
+        font-family: 'Fira Code', monospace;
+        color: $text-secondary;
+        display: block;
+        margin-top: 5px;
+      }
+    }
+
+    .job-description {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        color: $text-secondary;
+        
+        &::before {
+          content: '▹';
+          position: absolute;
+          left: 0;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

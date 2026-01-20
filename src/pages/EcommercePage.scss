@@ -1,0 +1,99 @@
+@use '../styles/variables' as *;
+@use '../styles/animations' as *;
+
+.ecommerce-page {
+  min-height: 100vh;
+  background-color: $bg-dark;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  overflow-x: hidden;
+
+  .animate-entry {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .delay-1 {
+    animation-delay: 0.1s;
+  }
+
+  .delay-2 {
+    animation-delay: 0.2s;
+  }
+
+  .back-btn {
+    color: $text-secondary;
+    margin-bottom: 40px;
+    text-transform: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+
+    &:hover {
+      color: $primary-color;
+      background: rgba($primary-color, 0.1);
+      transform: translateX(-5px);
+    }
+  }
+
+  .page-title {
+    font-weight: 800;
+    margin-bottom: 24px;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+  }
+
+  .tech-chip {
+    color: $primary-color;
+    border: 1px solid rgba($primary-color, 0.3);
+    font-family: 'Fira Code', monospace;
+    background: rgba($primary-color, 0.05);
+    backdrop-filter: blur(4px);
+  }
+
+  .description {
+    color: $text-secondary;
+    margin-bottom: 60px;
+    max-width: 900px;
+    line-height: 1.8;
+    font-size: 1.15rem;
+  }
+
+  .section-heading {
+    color: white;
+    margin-bottom: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: #4caf50;
+      border-radius: 2px;
+      box-shadow: 0 0 10px #4caf50;
+    }
+  }
+
+  .video-container {
+    background: transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+
+    .project-video {
+      width: 100%;
+      display: block;
+      outline: none;
+    }
+  }
+}

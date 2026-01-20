@@ -1,0 +1,72 @@
+@use '../styles/variables' as *;
+
+.contact-section {
+  padding: 100px 0;
+  background: linear-gradient(to bottom, $bg-dark,($bg-dark, 3%));
+  text-align: center;
+
+  .section-title {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .contact-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 60px 40px;
+    backdrop-filter: blur(10px);
+
+    .contact-text {
+      color: $text-secondary;
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      background: rgba($primary-color, 0.1);
+      border: 1px solid rgba($primary-color, 0.2);
+      transition: all 0.3s ease;
+
+      .icon {
+        color: $primary-color;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      &:hover {
+        background: rgba($primary-color, 0.2);
+        transform: translateY(-2px);
+        
+        a {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .social-btn {
+      color: $text-secondary;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        color: $primary-color;
+        border-color: $primary-color;
+        background: rgba($primary-color, 0.1);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}

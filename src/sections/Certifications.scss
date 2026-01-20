@@ -1,0 +1,104 @@
+@use '../styles/variables' as *;
+
+.certifications-section {
+  padding: 80px 0;
+  background-color: ($bg-dark, 2%);
+
+  .section-icon {
+    color: $primary-color;
+    font-size: 2.5rem;
+  }
+
+  .section-heading {
+    color: white;
+    font-weight: 700;
+  }
+
+  .cert-card {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: $primary-color;
+      background: rgba(255, 255, 255, 0.06);
+
+      .cert-image-preview .overlay {
+        opacity: 1;
+      }
+      
+      .cert-image-preview img {
+        transform: scale(1.05);
+      }
+    }
+
+    .cert-image-preview {
+      width: 100%;
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        opacity: 0.8;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+      }
+    }
+    
+    .cert-category {
+      color: $secondary-color;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+    }
+
+    .cert-name {
+      color: white;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .cert-issuer {
+      color: $text-secondary;
+      font-size: 0.9rem;
+    }
+
+    .cert-date {
+      color: rgba($primary-color, 0.8);
+      font-family: monospace;
+      font-size: 0.85rem;
+      margin-top: auto; 
+      padding-top: 10px;
+    }
+  }
+}

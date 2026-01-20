@@ -1,0 +1,25 @@
+@import "../styles/variables";
+.navbar {
+  background: rgba(10, 25, 41, 0.85) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    letter-spacing: 2px;
+  }
+
+  .nav-link {
+    color: $text-secondary !important;
+    text-transform: none !important;
+    font-weight: 500 !important;
+    
+    &:hover {
+      color: $primary-color !important;
+      background: transparent !important;
+    }
+  }
+}
