@@ -3,6 +3,7 @@ import { Box, Container, Typography, Button, Paper, Chip, Stack } from '@mui/mat
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import '../sections/Projects.scss';
+import blinkitDashboard from '../assets/blinkit-dashboard.png';
 
 const BlinkitPage = () => {
 
@@ -29,7 +30,6 @@ const BlinkitPage = () => {
           Back to Portfolio
         </Button>
 
-     
         <Typography variant="h2" sx={{ fontWeight: '800', color: 'white', mb: 2 }}>
           Blinkit Business Insights
         </Typography>
@@ -50,7 +50,6 @@ const BlinkitPage = () => {
           By leveraging Power BI and DAX, I identified key delivery bottlenecks by comparing promised vs. actual delivery times 
           and created measures to track profitability and revenue contribution across different store locations.
         </Typography>
-
       
         <Paper 
           elevation={24} 
@@ -63,7 +62,7 @@ const BlinkitPage = () => {
           }}
         >
           <img 
-            src="/blinkit-dashboard.png" 
+            src={blinkitDashboard} 
             alt="Blinkit Dashboard Full View" 
             style={{ width: '100%', height: 'auto', display: 'block' }} 
           />

@@ -1,7 +1,10 @@
 import { Box, Container, Typography, Button, IconButton, Stack } from '@mui/material';
 import { resumeData } from '../data/resumeData';
-import { Link as ScrollLink } from 'react-scroll'; // Import ScrollLink
+import { Link as ScrollLink } from 'react-scroll'; 
 import './Hero.scss';
+
+
+import profileImage from '../assets/me.jpg'; 
 
 const Hero = () => {
   return (
@@ -9,27 +12,27 @@ const Hero = () => {
       <div className="hero-bg-glow"></div>
       
       <Container maxWidth="lg">
-        {/* Main Flex Container (Replaces Grid) */}
+   
         <Box 
           sx={{ 
             display: 'flex', 
-            flexDirection: { xs: 'column-reverse', md: 'row' }, // Stack on mobile, Row on Desktop
+            flexDirection: { xs: 'column-reverse', md: 'row' }, 
             alignItems: 'center', 
             justifyContent: 'space-between', 
-            gap: { xs: 6, md: 4 }, // Spacing between Text and Image
-            minHeight: '80vh' // Ensures it takes up good vertical space
+            gap: { xs: 6, md: 4 }, 
+            minHeight: '80vh' 
           }}
         >
           
-          {/* LEFT SIDE: TEXT CONTENT */}
+      
           <Box 
             className="hero-content" 
             sx={{ 
               flex: 1, 
-              textAlign: { xs: 'center', md: 'left' }, // Center text on mobile
+              textAlign: { xs: 'center', md: 'left' }, 
               display: 'flex',
               flexDirection: 'column',
-              alignItems: { xs: 'center', md: 'flex-start' } // Center items on mobile
+              alignItems: { xs: 'center', md: 'flex-start' } 
             }}
           >
             <Typography variant="subtitle1" className="greeting">
@@ -49,10 +52,9 @@ const Hero = () => {
             </Typography>
             
             <Stack direction="row" spacing={3} className="action-buttons">
-              {/* Scroll to Contact Section instead of Popup */}
               <Button 
                 component={ScrollLink}
-                to="contact"  // ID of the Contact Section
+                to="contact" 
                 smooth={true}
                 duration={500}
                 offset={-70}
@@ -63,7 +65,6 @@ const Hero = () => {
                 Contact Me
               </Button>
               
-              {/* Social Icons */}
               <Stack direction="row" spacing={1}>
                 {resumeData.personal.socials.map((social) => (
                   <IconButton 
@@ -79,19 +80,20 @@ const Hero = () => {
             </Stack>
           </Box>
 
-          {/* RIGHT SIDE: IMAGE */}
+       
           <Box 
             sx={{ 
               flex: 1, 
               display: 'flex', 
-              justifyContent: { xs: 'center', md: 'flex-end' }, // Center on mobile, Right on desktop
+              justifyContent: { xs: 'center', md: 'flex-end' }, 
               width: '100%' 
             }}
           >
             <Box className="profile-image-wrapper">
               <div className="animated-border-glow"></div>
+          
               <img 
-                src="/me.jpg" 
+                src={profileImage} 
                 alt={resumeData.personal.name} 
                 className="profile-image" 
               />

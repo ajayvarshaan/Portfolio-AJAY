@@ -3,6 +3,7 @@ import { Box, Container, Typography, Button, Paper, Chip, Stack } from '@mui/mat
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import './EcommercePage.scss'; 
+import screenRec from '../assets/Screen Recording.mp4';
 
 const EcommercePage = () => {
   useEffect(() => {
@@ -40,7 +41,6 @@ const EcommercePage = () => {
           </Typography>
         </Box>
 
-        {/* Video Player Section */}
         <Box className="video-section animate-entry delay-2">
           <Typography variant="h5" className="section-heading">
             Live Project Demo
@@ -55,8 +55,7 @@ const EcommercePage = () => {
               playsInline
               className="project-video"
             >
-              {/* UPDATED FILE NAME HERE */}
-              <source src="/Screen Recording.mp4" type="video/mp4" />
+              <source src={screenRec} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </Paper>

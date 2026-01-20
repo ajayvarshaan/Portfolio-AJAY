@@ -3,7 +3,8 @@ import { Box, Container, Typography, Button, Paper, Chip, Stack } from '@mui/mat
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { Link } from 'react-router-dom';
-import './HrPage.scss'; // We create this next
+import './HrPage.scss'; 
+import hrImg from '../assets/hr.png';
 
 const HrPage = () => {
   useEffect(() => {
@@ -40,7 +41,6 @@ const HrPage = () => {
             for robust code quality.
           </Typography>
 
-          {/* Optional: Button to visit the live site if you still want to offer it */}
           <Button 
             variant="contained" 
             endIcon={<LaunchIcon />}
@@ -56,7 +56,6 @@ const HrPage = () => {
           </Button>
         </Box>
 
-        {/* Main Image Display */}
         <Box className="animate-entry delay-2">
           <Typography variant="h5" className="section-heading">
             UI & Design Overview
@@ -64,7 +63,7 @@ const HrPage = () => {
           
           <Paper elevation={10} className="image-container">
             <img 
-              src="/hr.png" 
+              src={hrImg} 
               alt="HR Platform UI Design" 
             />
           </Paper>

@@ -11,16 +11,23 @@ import {
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import './HospitalPage.scss';
+import h1 from '../assets/1.jpg';
+import h2 from '../assets/2.jpg';
+import h3 from '../assets/3.jpg';
+import h4 from '../assets/4.jpg';
+import h5 from '../assets/5.jpg';
+import h6 from '../assets/6.jpg';
+import h7 from '../assets/7.jpg';
+import h8 from '../assets/8.jpg';
+import h9 from '../assets/9.jpg';
+import h10 from '../assets/10.jpg';
 
 const HospitalPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const hospitalImages = Array.from(
-    { length: 10 },
-    (_, i) => `/${i + 1}.jpg`
-  );
+  const hospitalImages = [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10];
 
   return (
     <Box className="hospital-page">

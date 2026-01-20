@@ -11,6 +11,8 @@ import {
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import './MetaAdsPage.scss';
+import fbImg from '../assets/fb.png';
+import instaImg from '../assets/insta.png';
 
 const MetaAdsPage = () => {
   useEffect(() => {
@@ -68,7 +70,7 @@ const MetaAdsPage = () => {
             </Typography>
             <Paper elevation={10} className="image-container">
               <img
-                src="/fb.png"
+                src={fbImg}
                 alt="Facebook Ads Dashboard"
                 loading="lazy"
               />
@@ -81,7 +83,7 @@ const MetaAdsPage = () => {
             </Typography>
             <Paper elevation={10} className="image-container">
               <img
-                src="/insta.png"
+                src={instaImg}
                 alt="Instagram Ads Dashboard"
                 loading="lazy"
               />

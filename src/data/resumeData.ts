@@ -1,5 +1,30 @@
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 
+// 1. IMPORT ALL IMAGES FROM ASSETS
+// (Make sure these files exist in src/assets/)
+import profilePic from '../assets/me.jpg'; // The "Man" (Profile Picture)
+
+import internImg from '../assets/intern.png';
+import da1 from '../assets/da-1.png';
+import da2 from '../assets/da-2.png';
+import da3 from '../assets/da-3.png';
+import da4 from '../assets/da-4.png';
+import web1 from '../assets/web-1.png';
+import web2 from '../assets/web-2.png';
+import web3 from '../assets/web-3.png';
+import web4 from '../assets/web-4.png';
+import web5 from '../assets/web-5.png';
+import web6 from '../assets/web-6.png';
+import web7 from '../assets/web-7.png';
+import web8 from '../assets/web-8.png';
+
+import blinkitImg from '../assets/blinkit-dashboard.png';
+import pizzaImg from '../assets/pizza 1.png'; // Ensure filename matches exactly
+import metaImg from '../assets/fb.png';
+import hrImg from '../assets/hr.png';
+import hospitalImg from '../assets/1.jpg';
+import ecomImg from '../assets/mini.png';
+
 export const resumeData = {
   personal: {
     name: "Ajay Varshaan",
@@ -7,7 +32,8 @@ export const resumeData = {
     location: "Coimbatore, Tamil Nadu",
     email: "ajayvarshaan.2253006@srec.ac.in",
     phone: "+91 9791324929", 
-    summary: "A passionate and driven individual with strong fundamentals in computer science, specializing in frontend web development and data analytics. Skilled in building responsive web applications, creating compelling UI/UX interfaces, and deriving insights from data. Eager to contribute to dynamic teams, create impactful user experiences, and deliver meaningful analytical insights.",
+    summary: "A passionate and driven individual with strong fundamentals in computer science, specializing in frontend web development and data analytics. Skilled in building responsive web applications, creating compelling UI/UX interfaces, and deriving insights from data.",
+    profileImage: profilePic, // <--- Added the image here for easy access
     socials: [
       { name: "LinkedIn", url: "https://linkedin.com/in/ajayvarshaan", icon: LinkedIn },
       { name: "GitHub", url: "https://github.com/ajayvarshaan", icon: GitHub },
@@ -19,91 +45,91 @@ export const resumeData = {
       name: "Frontend Developer Internship",
       issuer: "Maarrs Consulting",
       date: "Dec 2025",
-      image: "/intern.png",
+      image: internImg, // Used imported variable
       category: "Internship"
     },
     {
       name: "Microsoft Power BI Data Analyst",
       issuer: "Microsoft",
       date: "2024",
-      image: "/da-1.png", 
+      image: da1, 
       category: "Data Analytics"
     },
     {
       name: "SQL Basic & Intermediate",
       issuer: "HackerRank",
       date: "2023",
-      image: "/da-2.png",
+      image: da2,
       category: "Data Analytics"
     },
     {
       name: "Data Visualization with Tableau",
       issuer: "Coursera",
       date: "2023",
-      image: "/da-3.png",
+      image: da3,
       category: "Data Analytics"
     },
     {
       name: "Google Data Analytics Professional",
       issuer: "Google",
       date: "2023",
-      image: "/da-4.png",
+      image: da4,
       category: "Data Analytics"
     },
     {
       name: "Frontend Development using React",
       issuer: "Infosys Springboard",
       date: "2023",
-      image: "/web-1.png",
+      image: web1,
       category: "Web Development"
     },
     {
       name: "JavaScript Algorithms & Data Structures",
       issuer: "FreeCodeCamp",
       date: "2023",
-      image: "/web-2.png",
+      image: web2,
       category: "Web Development"
     },
     {
       name: "Responsive Web Design",
       issuer: "FreeCodeCamp",
       date: "2022",
-      image: "/web-3.png",
+      image: web3,
       category: "Web Development"
     },
     {
       name: "Full Stack Development Bootcamp",
       issuer: "Udemy",
       date: "2023",
-      image: "/web-4.png",
+      image: web4,
       category: "Web Development"
     },
     {
       name: "React Native Specialization",
       issuer: "Coursera",
       date: "2024",
-      image: "/web-5.png",
+      image: web5,
       category: "Web Development"
     },
     {
       name: "Modern HTML & CSS From The Beginning",
       issuer: "Udemy",
       date: "2022",
-      image: "/web-6.png",
+      image: web6,
       category: "Web Development"
     },
     {
       name: "TypeScript for Beginners",
       issuer: "Udemy",
       date: "2024",
-      image: "/web-7.png",
+      image: web7,
       category: "Web Development"
     },
     {
       name: "UI/UX Design Fundamentals",
       issuer: "Google",
       date: "2023",
-      image: "/web-8.png",
+      image: web8,
       category: "Web Development"
     }
   ],
@@ -123,46 +149,46 @@ export const resumeData = {
     {
       title: "Blinkit Business Insights",
       tech: ["Power BI", "DAX"],
-      description: "Analyzed sales performance and delivery efficiency. Created DAX measures for profitability and frequency. Identified delivery bottlenecks by comparing promised vs. actual times.",
+      description: "Analyzed sales performance and delivery efficiency. Created DAX measures for profitability and frequency.",
       internalLink: "/projects/blinkit",
-      image: "/blinkit-dashboard.png" 
+      image: blinkitImg 
     },
     {
       title: "Pizza Sales Analytics",
       tech: ["Power BI", "SQL", "Python"],
-      description: "Performed EDA to uncover peak order times and best sellers. Created interactive dashboard with slicers. Queried and transformed raw order data using SQL and Python.",
+      description: "Performed EDA to uncover peak order times and best sellers. Created interactive dashboard with slicers.",
       internalLink: "/projects/pizza",
-      image: "/pizza 1.png"
+      image: pizzaImg
     },
     {
       title: "Meta Ads Dashboard",
       tech: ["Power BI", "DAX"],
-      description: "Analytical dashboard for evaluating ad campaigns. Computed KPIs like CTR, CPC, and ROAS. Used funnel charts and performed audience segmentation analysis.",
+      description: "Analytical dashboard for evaluating ad campaigns. Computed KPIs like CTR, CPC, and ROAS.",
       internalLink: "/projects/meta-ads",
-      image: "/fb.png"
+      image: metaImg
     },
     {
       title: "HR Landing Page",
       tech: ["React (TS)", "MUI", "SCSS"],
-      description: "Designed a modern HR landing page with animated layouts and onboarding visuals. Utilized TypeScript for type-safe reusable component development and enhanced engagement with smooth transitions.",
+      description: "Designed a modern HR landing page with animated layouts and onboarding visuals.",
       internalLink: "/projects/hr-platform",
-      image: "/hr.png",
+      image: hrImg,
       externalLink: ""
     },
     {
       title: "Hospital Management System",
       tech: ["HTML/CSS", "JavaScript", "PHP"],
-      description: "Developed a responsive frontend with mobile-friendly layouts. Integrated backend using PHP for user data handling and created dashboards for doctors, staff, and patients.",
+      description: "Developed a responsive frontend with mobile-friendly layouts. Integrated backend using PHP.",
       internalLink: "/projects/hospital",
-      image: "/1.jpg",
+      image: hospitalImg,
       externalLink: ""
     },
     {
       title: "Mini E-Commerce Platform",
       tech: ["React.js", "MongoDB", "Node.js"],
-      description: "Implemented product listing, cart management, and responsive UI. Built seamless integration between frontend and backend using MongoDB for data storage.",
+      description: "Implemented product listing, cart management, and responsive UI.",
       internalLink: "/projects/ecommerce",
-      image: "/mini.png",
+      image: ecomImg,
       externalLink: ""
     }
   ],
@@ -173,34 +199,33 @@ export const resumeData = {
  activities: [
     {
       role: "React.js Bootcamp Participant",
-      organization: "Sri Ramakrishna Engineering College", // Assuming college event, or change to specific organizer
+      organization: "Sri Ramakrishna Engineering College", 
       period: "2023",
-      description: "Completed an intensive 3-day bootcamp focusing on modern React patterns. Mastered functional components, Hooks, and state management to build dynamic single-page applications."
+      description: "Completed an intensive 3-day bootcamp focusing on modern React patterns."
     },
     {
       role: "Workshop Trainee (AI & Power BI)",
       organization: "Be10x",
       period: "2024",
-      description: "Gained hands-on experience in generative AI tools for workflow automation and Power BI for business intelligence. Learned to create interactive dashboards and leverage AI for productivity."
+      description: "Gained hands-on experience in generative AI tools for workflow automation and Power BI."
     },
     {
       role: "Frontend Development Learner",
       organization: "Scrimba",
       period: "2023 - Present",
-      description: "Actively pursuing advanced interactive coding modules. Focused on modern UI/UX implementation, reusable component architecture, and responsive design best practices."
+      description: "Actively pursuing advanced interactive coding modules."
     },
     {
       role: "Web Development Workshop",
       organization: "Technical Workshop",
       period: "2023",
-      description: "Strengthened foundational skills in HTML5, CSS3, and JavaScript. Built responsive web layouts and learned DOM manipulation techniques for interactive interfaces."
+      description: "Strengthened foundational skills in HTML5, CSS3, and JavaScript."
     },
- 
     {
       role: "Class Representative",
       organization: "Sri Ramakrishna Engineering College",
       period: "2022 - Present",
-      description: "Acting as a liaison between students and faculty, organizing class schedules, and effectively managing academic resources and peer communications."
+      description: "Acting as a liaison between students and faculty."
     }
   ]
 };

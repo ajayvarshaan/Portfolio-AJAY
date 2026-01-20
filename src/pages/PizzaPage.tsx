@@ -11,6 +11,8 @@ import {
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import './PizzaPage.scss';
+import pizza1 from '../assets/pizza 1.png';
+import pizza2 from '../assets/pizza 2.png';
 
 const PizzaPage = () => {
   useEffect(() => {
@@ -68,7 +70,7 @@ const PizzaPage = () => {
             </Typography>
             <Paper elevation={10} className="image-container">
               <img
-                src="/pizza 1.png"
+                src={pizza1}
                 alt="Pizza Sales Dashboard Overview"
                 loading="lazy"
               />
@@ -81,7 +83,7 @@ const PizzaPage = () => {
             </Typography>
             <Paper elevation={10} className="image-container">
               <img
-                src="/pizza 2.png"
+                src={pizza2}
                 alt="Pizza Sales Detailed Insights"
                 loading="lazy"
               />
