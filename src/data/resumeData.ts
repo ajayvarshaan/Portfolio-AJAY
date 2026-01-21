@@ -1,8 +1,7 @@
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 
-// 1. IMPORT ALL IMAGES FROM ASSETS
-// (Make sure these files exist in src/assets/)
-import profilePic from '../assets/me.jpg'; // The "Man" (Profile Picture)
+
+import profilePic from '../assets/me.jpg'; 
 
 import internImg from '../assets/intern.png';
 import da1 from '../assets/da-1.png';
@@ -19,7 +18,7 @@ import web7 from '../assets/web-7.png';
 import web8 from '../assets/web-8.png';
 
 import blinkitImg from '../assets/blinkit-dashboard.png';
-import pizzaImg from '../assets/pizza 1.png'; // Ensure filename matches exactly
+import pizzaImg from '../assets/pizza 1.png'; 
 import metaImg from '../assets/fb.png';
 import hrImg from '../assets/hr.png';
 import hospitalImg from '../assets/1.jpg';
@@ -28,12 +27,12 @@ import ecomImg from '../assets/mini.png';
 export const resumeData = {
   personal: {
     name: "Ajay Varshaan",
-    role: "Frontend Developer & Data Analyst",
+    role: "Web Developer & Data Analyst",
     location: "Coimbatore, Tamil Nadu",
     email: "ajayvarshaan.2253006@srec.ac.in",
     phone: "+91 9791324929", 
     summary: "A passionate and driven individual with strong fundamentals in computer science, specializing in frontend web development and data analytics. Skilled in building responsive web applications, creating compelling UI/UX interfaces, and deriving insights from data.",
-    profileImage: profilePic, // <--- Added the image here for easy access
+    profileImage: profilePic, 
     socials: [
       { name: "LinkedIn", url: "https://linkedin.com/in/ajayvarshaan", icon: LinkedIn },
       { name: "GitHub", url: "https://github.com/ajayvarshaan", icon: GitHub },
@@ -45,7 +44,7 @@ export const resumeData = {
       name: "Frontend Developer Internship",
       issuer: "Maarrs Consulting",
       date: "Dec 2025",
-      image: internImg, // Used imported variable
+      image: internImg, 
       category: "Internship"
     },
     {
@@ -192,10 +191,28 @@ export const resumeData = {
       externalLink: ""
     }
   ],
-  skills: {
-    frontend: ["React.js", "TypeScript", "JavaScript", "HTML/CSS", "MUI", "SCSS", "Flutter"],
-    data: ["Power BI", "Tableau", "SQL", "Python", "Excel", "DAX"]
-  },
+ skills: {
+  "Web Development": [
+    "React.js",
+    "TypeScript",
+    "JavaScript",
+    "HTML/CSS",
+    "MUI",
+    "SCSS",
+    "Flutter",
+    "Figma",
+    "MERN"
+  ],
+  "Data Analytics": [
+    "Power BI",
+    "Tableau",
+    "SQL",
+    "Python",
+    "Excel",
+    "DAX"
+  ]
+},
+
  activities: [
     {
       role: "React.js Bootcamp Participant",
@@ -221,11 +238,6 @@ export const resumeData = {
       period: "2023",
       description: "Strengthened foundational skills in HTML5, CSS3, and JavaScript."
     },
-    {
-      role: "Class Representative",
-      organization: "Sri Ramakrishna Engineering College",
-      period: "2022 - Present",
-      description: "Acting as a liaison between students and faculty."
-    }
+   
   ]
 };

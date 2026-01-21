@@ -39,10 +39,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      
-    
-      
+      <CssBaseline />  
       <Routes>
       
         <Route path="/" element={
