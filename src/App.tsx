@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import Experience from './sections/Experience';
+import Education from './sections/Education'; 
 import Certifications from './sections/Certifications';
 import Projects from './sections/Projects';
 import Skills from './sections/Skills';
@@ -42,12 +43,14 @@ function App() {
       <CssBaseline />  
       <Routes>
       
+     
         <Route path="/" element={
           <>
             <Navbar />
             <Box component="main">
               <Hero />
               <Experience />
+              <Education /> 
               <Certifications />
               <Projects />
               <Skills />
@@ -60,7 +63,6 @@ function App() {
           </>
         } />
 
-     
         <Route path="/projects/blinkit" element={<BlinkitPage />} />
         <Route path="/projects/pizza" element={<PizzaPage />} />
         <Route path="/projects/meta-ads" element={<MetaAdsPage />} />

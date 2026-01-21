@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { 
   AppBar, 
   Toolbar, 
@@ -41,61 +41,23 @@ const Navbar = (props: Props) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   const navItems = [
-    { name: 'About', link: 'hero' },
+    { name: 'Home', link: 'hero' },
     { name: 'Experience', link: 'experience' },
-    { name: 'Certifications', link: 'certifications' },
+    { name: 'Education', link: 'education' },
     { name: 'Projects', link: 'projects' },
     { name: 'Skills', link: 'skills' },
     { name: 'Activities', link: 'activities' },
     { name: 'Contact', link: 'contact' },
   ];
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', height: '100%', bgcolor: '#0a1929' }}>
-      <Box sx={{ py: 2, display: 'flex', justifyContent: 'flex-end', px: 2 }}>
-        <IconButton sx={{ color: 'white' }}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
-      <List>
-        {navItems.map((item) => (
-          <ScrollLink
-            key={item.name}
-            to={item.link}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            onClick={handleDrawerToggle}
-          >
-            <ListItem disablePadding>
-              <ListItemButton sx={{ textAlign: 'center', py: 2 }}>
-                <ListItemText 
-                  primary={item.name} 
-                  primaryTypographyProps={{ 
-                    sx: { color: 'white', fontWeight: 600 } 
-                  }} 
-                />
-              </ListItemButton>
-            </ListItem>
-          </ScrollLink>
-        ))}
-      </List>
-    </Box>
-  );
-
   return (
     <HideOnScroll {...props}>
-      <AppBar 
-        position="fixed" 
-        className={`navbar ${scrolled ? 'scrolled' : ''}`}
-        elevation={scrolled ? 4 : 0}
-        sx={{ bgcolor: scrolled ? 'rgba(10, 25, 41, 0.85)' : 'transparent' }}
-      >
+      <AppBar component="nav" className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           
           <ScrollLink to="hero" smooth={true} duration={500} style={{ cursor: 'pointer' }}>
@@ -140,10 +102,39 @@ const Navbar = (props: Props) => {
           ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240, bgcolor: '#0a1929' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 250, backgroundColor: '#0a1929' },
           }}
         >
-          {drawer}
+          <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', p: 2 }}>
+             <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+               <IconButton onClick={handleDrawerToggle} sx={{ color: 'white' }}>
+                 <CloseIcon />
+               </IconButton>
+             </Box>
+             
+             <List>
+              {navItems.map((item) => (
+                <ListItem key={item.name} disablePadding>
+                  <ScrollLink 
+                    to={item.link} 
+                    smooth={true} 
+                    duration={500} 
+                    offset={-70}
+                    onClick={handleDrawerToggle}
+                    style={{ width: '100%' }}
+                  >
+                    <ListItemButton sx={{ textAlign: 'center' }}>
+                      <ListItemText 
+                        primary={item.name} 
+                        sx={{ color: 'white' }} 
+                        primaryTypographyProps={{ fontWeight: 500 }}
+                      />
+                    </ListItemButton>
+                  </ScrollLink>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
         </Drawer>
       </AppBar>
     </HideOnScroll>

@@ -1,6 +1,5 @@
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 
-
 import profilePic from '../assets/me.jpg'; 
 
 import internImg from '../assets/intern.png';
@@ -39,6 +38,29 @@ export const resumeData = {
       { name: "Email", url: "mailto:ajayvarshaan.2253006@srec.ac.in", icon: Email }
     ]
   },
+
+  // ADDED EDUCATION SECTION HERE
+  education: [
+    {
+      degree: "M.Tech Computer Science and Engineering",
+      institution: "Sri Ramakrishna Engineering College, Coimbatore",
+      period: "2022 – Present",
+      score: "CGPA: 7.45"
+    },
+    {
+      degree: "Higher Secondary (12th Grade)",
+      institution: "Glazebrook Matriculation Higher Secondary School, Salem",
+      period: "2022",
+      score: "Percentage: 80%"
+    },
+    {
+      degree: "Secondary (10th Grade)",
+      institution: "Holy Cross Matriculation Higher Secondary School, Salem",
+      period: "2020",
+      score: "Percentage: 78%"
+    }
+  ],
+
   certifications: [
     {
       name: "Frontend Developer Internship",
@@ -191,29 +213,29 @@ export const resumeData = {
       externalLink: ""
     }
   ],
- skills: {
-  "Web Development": [
-    "React.js",
-    "TypeScript",
-    "JavaScript",
-    "HTML/CSS",
-    "MUI",
-    "SCSS",
-    "Flutter",
-    "Figma",
-    "MERN"
-  ],
-  "Data Analytics": [
-    "Power BI",
-    "Tableau",
-    "SQL",
-    "Python",
-    "Excel",
-    "DAX"
-  ]
-},
+  skills: {
+    "Web Development": [
+      "React.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "MUI",
+      "SCSS",
+      "Flutter",
+      "Figma",
+      "MERN"
+    ],
+    "Data Analytics": [
+      "Power BI",
+      "Tableau",
+      "SQL",
+      "Python",
+      "Excel",
+      "DAX"
+    ]
+  },
 
- activities: [
+  activities: [
     {
       role: "React.js Bootcamp Participant",
       organization: "Sri Ramakrishna Engineering College", 
@@ -237,7 +259,6 @@ export const resumeData = {
       organization: "Technical Workshop",
       period: "2023",
       description: "Strengthened foundational skills in HTML5, CSS3, and JavaScript."
-    },
-   
+    }
   ]
 };
