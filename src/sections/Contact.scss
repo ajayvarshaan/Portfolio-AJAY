@@ -1,14 +1,23 @@
 @use '../styles/variables' as *;
 
 .contact-section {
-  padding: 100px 0;
+  padding: 80px 0;
   background: linear-gradient(to bottom, $bg-dark,($bg-dark, 3%));
   text-align: center;
+
+  @media (max-width: 600px) {
+    padding: 60px 0;
+  }
 
   .section-title {
     color: white;
     font-weight: 700;
     margin-bottom: 40px;
+
+    @media (max-width: 600px) {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
   }
 
   .contact-card {
@@ -18,12 +27,21 @@
     padding: 60px 40px;
     backdrop-filter: blur(10px);
 
+    @media (max-width: 600px) {
+      padding: 30px 20px;
+      border-radius: 16px;
+    }
+
     .contact-text {
       color: $text-secondary;
       font-size: 1.1rem;
       max-width: 600px;
       line-height: 1.6;
       margin-bottom: 20px;
+
+      @media (max-width: 600px) {
+        font-size: 1rem;
+      }
     }
 
     .contact-item {
@@ -36,8 +54,17 @@
       border: 1px solid rgba($primary-color, 0.2);
       transition: all 0.3s ease;
 
+      @media (max-width: 600px) {
+        padding: 10px 16px;
+        gap: 8px;
+      }
+
       .icon {
         color: $primary-color;
+
+        @media (max-width: 600px) {
+          font-size: 1.25rem;
+        }
       }
 
       a {
@@ -45,6 +72,11 @@
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
+        word-break: break-all;
+
+        @media (max-width: 600px) {
+          font-size: 0.9rem;
+        }
       }
 
       &:hover {
@@ -60,6 +92,11 @@
     .social-btn {
       color: $text-secondary;
       border: 1px solid rgba(255, 255, 255, 0.1);
+
+      @media (max-width: 600px) {
+        padding: 8px;
+        min-width: 40px;
+      }
       
       &:hover {
         color: $primary-color;

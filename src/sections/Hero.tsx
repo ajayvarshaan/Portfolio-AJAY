@@ -11,7 +11,7 @@ const Hero = () => {
     <Box id="hero" className="hero-section">
       <div className="hero-bg-glow"></div>
       
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
    
         <Box 
           sx={{ 

@@ -2,12 +2,20 @@
 
 
 .skills-section {
-  padding: 100px 0;
+  padding: 80px 0;
   background-color: $bg-dark;
+
+  @media (max-width: 600px) {
+    padding: 60px 0;
+  }
   
   .section-header {
     text-align: center;
     margin-bottom: 3rem;
+
+    @media (max-width: 600px) {
+      margin-bottom: 2rem;
+    }
   }
 
   .section-title {
@@ -15,6 +23,10 @@
     color: white;
     position: relative;
     display: inline-block;
+
+    @media (max-width: 600px) {
+      font-size: 2rem;
+    }
     
     &::after {
       content: '';
@@ -37,9 +49,12 @@
     justify-content: center;
     align-items: start;
     max-width: 900px;
-    margin: 0 auto; 
+    margin: 0 auto;
 
- 
+    @media (max-width: 600px) {
+      gap: 20px;
+    }
+
     @media (min-width: 900px) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -57,6 +72,11 @@
     flex-direction: column;
     align-items: center;
 
+    @media (max-width: 600px) {
+      padding: 20px;
+      border-radius: 12px;
+    }
+
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -73,6 +93,12 @@
       padding-bottom: 8px;
       width: 100%;
       text-align: center;
+
+      @media (max-width: 600px) {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        letter-spacing: 1px;
+      }
     }
 
     .skill-list {
@@ -81,6 +107,10 @@
       gap: 12px;
       justify-content: center;
       width: 100%;
+
+      @media (max-width: 600px) {
+        gap: 8px;
+      }
     }
 
     .skill-item {
@@ -89,6 +119,10 @@
       border-radius: 20px;
       transition: all 0.2s ease;
       cursor: default;
+
+      @media (max-width: 600px) {
+        padding: 6px 12px;
+      }
 
       &:hover {
         background: $primary-color;
@@ -102,6 +136,10 @@
         color: #e0e0e0;
         font-weight: 500;
         font-size: 0.95rem;
+
+        @media (max-width: 600px) {
+          font-size: 0.85rem;
+        }
       }
     }
   }

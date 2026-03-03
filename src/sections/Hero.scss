@@ -6,8 +6,13 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 0;
+  padding: 100px 0 60px;
   overflow: hidden;
+
+  @media (max-width: 600px) {
+    padding: 80px 0 40px;
+    min-height: auto;
+  }
 
   .hero-bg-glow {
     position: absolute;
@@ -18,6 +23,13 @@
     background: radial-gradient(circle, rgba($primary-color, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
     z-index: 0;
     pointer-events: none;
+
+    @media (max-width: 600px) {
+      width: 300px;
+      height: 300px;
+      top: -10%;
+      right: -20%;
+    }
   }
 
   .hero-content {
@@ -30,18 +42,28 @@
       letter-spacing: 2px;
       margin-bottom: 1rem;
       text-transform: uppercase;
+      font-size: 0.875rem;
+
+      @media (max-width: 600px) {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+      }
     }
 
     .name-gradient {
       font-weight: 800;
       margin-bottom: 0.5rem;
       line-height: 1.1;
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       background: linear-gradient(45deg, white 30%, $primary-color 100%);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
+
+      @media (min-width: 600px) {
+        font-size: 3.5rem;
+      }
 
       @media (min-width: 900px) {
         font-size: 4.5rem;
@@ -52,7 +74,11 @@
       color: $text-secondary;
       font-weight: 500;
       margin-bottom: 1.5rem;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+
+      @media (min-width: 600px) {
+        font-size: 1.5rem;
+      }
 
       @media (min-width: 900px) {
         font-size: 2rem;
@@ -64,10 +90,21 @@
       max-width: 600px;
       margin-bottom: 2.5rem;
       line-height: 1.8;
-      font-size: 1.1rem;
+      font-size: 1rem;
+
+      @media (min-width: 600px) {
+        font-size: 1.1rem;
+      }
     }
 
     .action-buttons {
+      flex-wrap: wrap;
+      justify-content: center;
+
+      @media (min-width: 900px) {
+        justify-content: flex-start;
+      }
+
       .primary-btn {
         background: linear-gradient(45deg, $primary-color, ($primary-color, 15%));
         color: #000;
@@ -77,6 +114,11 @@
         text-transform: none;
         font-size: 1rem;
         transition: transform 0.2s;
+
+        @media (max-width: 600px) {
+          padding: 10px 24px;
+          font-size: 0.9rem;
+        }
 
         &:hover {
           transform: translateY(-2px);
@@ -101,10 +143,15 @@
 
   .profile-image-wrapper {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     z-index: 2;
     margin-top: 40px;
+
+    @media (min-width: 600px) {
+      width: 300px;
+      height: 300px;
+    }
 
     @media (min-width: 900px) {
       margin-top: 0;

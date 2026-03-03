@@ -6,11 +6,26 @@
   box-shadow: none !important;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 
+  .MuiToolbar-root {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @media (max-width: 600px) {
+      padding-left: 12px;
+      padding-right: 12px;
+      min-height: 56px;
+    }
+  }
+
   .logo {
     font-size: 1.5rem;
     font-weight: 800;
     color: $primary-color;
     letter-spacing: 2px;
+
+    @media (max-width: 600px) {
+      font-size: 1.25rem;
+    }
   }
 
   .nav-link {

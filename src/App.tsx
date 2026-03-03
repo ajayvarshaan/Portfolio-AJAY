@@ -57,7 +57,7 @@ function App() {
               <Activities />
               <Contact />
             </Box>
-            <Box component="footer" sx={{ py: 4, textAlign: 'center', color: 'text.secondary', bgcolor: '#081421' }}>
+            <Box component="footer" sx={{ py: { xs: 3, md: 4 }, textAlign: 'center', color: 'text.secondary', bgcolor: '#081421', px: 2 }}>
               <p>Built with React, MUI & SCSS by Ajay Varshaan</p>
             </Box>
           </>
