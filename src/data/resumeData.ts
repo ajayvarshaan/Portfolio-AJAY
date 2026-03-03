@@ -39,7 +39,6 @@ export const resumeData = {
     ]
   },
 
-  // ADDED EDUCATION SECTION HERE
   education: [
     {
       degree: "M.Tech Computer Science and Engineering",
@@ -79,7 +78,7 @@ export const resumeData = {
     {
       name: "Letter of Recommendation - Data Analyst(Maiyyam)",
       issuer: "Maiyyam",
-      date: "2023",
+      date: "2024",
       image: da2,
       category: "Data Analytics"
     },
@@ -135,7 +134,7 @@ export const resumeData = {
     {
       name: "Complete Web & Mobile Designer : UI/UX, Figma, +more",
       issuer: "Udemy",
-      date: "2022",
+      date: "2024",
       image: web6,
       category: "Web Development"
     },
@@ -225,11 +224,14 @@ export const resumeData = {
       "Figma",
       "MERN"
     ],
+    "Programming Languages": [
+      "Java",
+      "Python"
+    ],
     "Data Analytics": [
       "Power BI",
       "Tableau",
       "SQL",
-      "Python",
       "Excel",
       "DAX"
     ]

@@ -47,8 +47,8 @@
     grid-template-columns: 1fr; 
     gap: 32px;
     justify-content: center;
-    align-items: start;
-    max-width: 900px;
+    align-items: stretch;
+    max-width: 1200px;
     margin: 0 auto;
 
     @media (max-width: 600px) {
@@ -56,7 +56,7 @@
     }
 
     @media (min-width: 900px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
