@@ -17,6 +17,7 @@ import MetaAdsPage from './pages/MetaAdsPage';
 import HrPage from './pages/HrPage';
 import HospitalPage from './pages/HospitalPage';
 import EcommercePage from './pages/EcommercePage';
+import WellnessPage from './pages/WellnessPage';
 
 const theme = createTheme({
   palette: {
@@ -69,6 +70,7 @@ function App() {
         <Route path="/projects/hr-platform" element={<HrPage />} />
         <Route path="/projects/hospital" element={<HospitalPage />} />
         <Route path="/projects/ecommerce" element={<EcommercePage />} />
+        <Route path="/projects/product-review" element={<WellnessPage />} />
 
       </Routes>
     </ThemeProvider>

@@ -22,6 +22,8 @@ import metaImg from '../assets/fb.png';
 import hrImg from '../assets/hr.png';
 import hospitalImg from '../assets/1.jpg';
 import ecomImg from '../assets/mini.png';
+import productReviewImg from '../assets/write-product-reviews.webp';
+import wellnessVideo from '../assets/Screen Recording 2026-03-08 181806.mp4';
 
 export const resumeData = {
   personal: {
@@ -210,6 +212,14 @@ export const resumeData = {
       internalLink: "/projects/ecommerce",
       image: ecomImg,
       externalLink: ""
+    },
+    {
+      title: "Product Review System",
+      tech: ["MERN STACK"],
+      description: "Interactive product review platform with real-time ratings, user feedback management, and responsive design.",
+      internalLink: "/projects/product-review",
+      image: productReviewImg,
+      video: wellnessVideo
     }
   ],
   skills: {
