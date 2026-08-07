@@ -18,6 +18,8 @@ import HrPage from './pages/HrPage';
 import HospitalPage from './pages/HospitalPage';
 import EcommercePage from './pages/EcommercePage';
 import WellnessPage from './pages/WellnessPage';
+import AiInterviewPage from './pages/AiInterviewPage';
+import AiEventBookingPage from './pages/AiEventBookingPage';
 
 const theme = createTheme({
   palette: {
@@ -71,6 +73,8 @@ function App() {
         <Route path="/projects/hospital" element={<HospitalPage />} />
         <Route path="/projects/ecommerce" element={<EcommercePage />} />
         <Route path="/projects/product-review" element={<WellnessPage />} />
+        <Route path="/projects/ai-interview" element={<AiInterviewPage />} />
+        <Route path="/projects/ai-event-booking" element={<AiEventBookingPage />} />
 
       </Routes>
     </ThemeProvider>

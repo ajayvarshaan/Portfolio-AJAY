@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import KeyInsights from '../components/KeyInsights';
 import './PizzaPage.scss';
 import pizza1 from '../assets/pizza 1.png';
 import pizza2 from '../assets/pizza 2.png';
@@ -54,6 +55,15 @@ const PizzaPage = () => {
             to help stakeholders optimize inventory and marketing strategies.
           </Typography>
         </Box>
+
+        <KeyInsights
+          insights={[
+            { text: 'Identified peak order times to help optimize staffing, inventory, and promotional scheduling.' },
+            { text: 'Best-selling categories and products surfaced to guide menu and marketing decisions.' },
+            { text: 'Seasonal trends revealed to improve demand forecasting and stock planning.' },
+            { text: 'Interactive Power BI slicers let stakeholders filter insights across date ranges and categories.' }
+          ]}
+        />
 
         <Box
           className="animate-entry delay-2"

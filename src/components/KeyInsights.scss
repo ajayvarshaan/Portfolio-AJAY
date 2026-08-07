@@ -1,0 +1,83 @@
+@use '../styles/variables' as *;
+@use '../styles/animations' as *;
+
+.key-insights {
+  margin-bottom: 60px;
+
+  &.animate-entry {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  &.delay-2 {
+    animation-delay: 0.2s;
+  }
+
+  .section-heading {
+    color: white;
+    margin-bottom: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: $primary-color;
+      border-radius: 2px;
+      box-shadow: 0 0 10px $primary-color;
+    }
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .insight-card {
+    @include glass-morphism;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 22px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+      border-color: rgba($primary-color, 0.4);
+    }
+
+    .insight-icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $primary-color;
+      background: rgba($primary-color, 0.12);
+      border: 1px solid rgba($primary-color, 0.25);
+
+      svg {
+        font-size: 1.4rem;
+      }
+    }
+
+    .insight-text {
+      color: $text-secondary;
+      line-height: 1.6;
+      font-size: 0.925rem;
+      margin: 0;
+    }
+  }
+}
+

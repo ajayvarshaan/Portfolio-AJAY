@@ -5,7 +5,7 @@ import './Skills.scss';
 const Skills = () => {
   return (
     <Box id="skills" className="skills-section">
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         
         <Box className="section-header">
           <Typography variant="h3" className="section-title">

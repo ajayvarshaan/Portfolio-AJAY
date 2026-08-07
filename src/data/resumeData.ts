@@ -24,15 +24,17 @@ import hospitalImg from '../assets/1.jpg';
 import ecomImg from '../assets/mini.png';
 import productReviewImg from '../assets/write-product-reviews.webp';
 import wellnessVideo from '../assets/Screen Recording 2026-03-08 181806.mp4';
+import aiInterviewImg from '../assets/ai-interview.jpg';
+import aiEventBookingImg from '../assets/web-1.png';
 
 export const resumeData = {
   personal: {
     name: "Ajay Varshaan",
-    role: "Web Developer & Data Analyst",
+    role: "AI FULL-STACK DEVELOPER & DATA ANALYST",
     location: "Coimbatore, Tamil Nadu",
     email: "ajayvarshaan.2253006@srec.ac.in",
     phone: "+91 9791324929", 
-    summary: "A passionate and driven individual with strong fundamentals in computer science, specializing in frontend web development and data analytics. Skilled in building responsive web applications, creating compelling UI/UX interfaces, and deriving insights from data.",
+    summary: "A passionate and driven individual with strong fundamentals in computer science, specializing in AI full-stack development and data analytics. Skilled in building intelligent web applications, integrating AI APIs, creating compelling UI/UX interfaces, and deriving actionable insights from data.",
     profileImage: profilePic, 
     socials: [
       { name: "LinkedIn", url: "https://linkedin.com/in/ajayvarshaan", icon: LinkedIn },
@@ -220,6 +222,21 @@ export const resumeData = {
       internalLink: "/projects/product-review",
       image: productReviewImg,
       video: wellnessVideo
+    },
+    {
+      title: "AI Interview Preparation",
+      tech: ["React.js"," Node.js", "MongoDB", "Tailwind CSS", "Framer Motion", "Google Gemini API", "JWT",
+"REST API"],
+      description: "AI-powered interview prep platform with role-based question generation, real-time feedback, and performance tracking.",
+      internalLink: "/projects/ai-interview",
+      image: aiInterviewImg
+    },
+    {
+      title: "AI Event Booking System",
+      tech: ["React.js", "Node.js", "MongoDB", "REST API", "Google Auth", "AI Integration"],
+      description: "AI-powered event booking platform with intelligent search, personalized recommendations, smart pricing, demand forecasting, event creation, and booking management.",
+      internalLink: "/projects/ai-event-booking",
+      image: aiEventBookingImg
     }
   ],
   skills: {
@@ -232,7 +249,10 @@ export const resumeData = {
       "SCSS",
       "Flutter",
       "Figma",
-      "MERN"
+      "MERN",
+      "REST API",
+      "JWT",
+      "AI API Integration"
     ],
     "Programming Languages": [
       "Java",
@@ -244,6 +264,15 @@ export const resumeData = {
       "SQL",
       "Excel",
       "DAX"
+    ],
+    "AI & Tools": [
+      "AI Integration",
+      "Gemini API",
+      "OpenAI API",
+      "Prompt Engineering",
+      "Git",
+      "GitHub",
+      "Postman"
     ]
   },
 

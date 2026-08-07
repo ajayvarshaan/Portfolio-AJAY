@@ -3,7 +3,8 @@ import { Box, Container, Typography, Button, Paper, Chip, Stack } from '@mui/mat
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { Link } from 'react-router-dom';
-import './HrPage.scss'; 
+import KeyInsights from '../components/KeyInsights';
+import './HrPage.scss';
 import hrImg from '../assets/hr.png';
 
 const HrPage = () => {
@@ -55,6 +56,15 @@ const HrPage = () => {
             Visit Live Site
           </Button>
         </Box>
+
+        <KeyInsights
+          insights={[
+            { text: 'Framer Motion animations deliver a polished, modern feel with smooth scroll-triggered transitions.' },
+            { text: 'Component-based architecture keeps the UI maintainable, scalable, and easy to extend.' },
+            { text: 'Accessible design with clear typography and contrast ensures usability across devices.' },
+            { text: 'A clean, organized layout guides users naturally through the onboarding journey.' }
+          ]}
+        />
 
         <Box className="animate-entry delay-2">
           <Typography variant="h5" className="section-heading">

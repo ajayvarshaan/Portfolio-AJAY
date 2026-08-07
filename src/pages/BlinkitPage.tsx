@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Box, Container, Typography, Button, Paper, Chip, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import KeyInsights from '../components/KeyInsights';
 import '../sections/Projects.scss';
 import blinkitDashboard from '../assets/blinkit-dashboard.png';
 
@@ -48,11 +49,20 @@ const BlinkitPage = () => {
         <Typography variant="h6" sx={{ color: '#b0bec5', mb: 6, maxWidth: '900px', lineHeight: 1.8 }}>
           This project involved a comprehensive analysis of Blinkit's sales performance, delivery efficiency, and product turnover. 
           By leveraging Power BI and DAX, I identified key delivery bottlenecks by comparing promised vs. actual delivery times 
-          and created measures to track profitability and revenue contribution across different store locations.
+and created measures to track profitability and revenue contribution across different store locations.
         </Typography>
-      
+
+        <KeyInsights
+          insights={[
+            { text: 'Identified key delivery bottlenecks by comparing promised versus actual delivery times.' },
+            { text: 'Tracked profitability and revenue contribution across different store locations using DAX measures.' },
+            { text: 'Analyzed sales performance and product turnover to surface high-performing categories.' },
+            { text: 'Delivery-efficiency metrics guide operational improvements for faster customer fulfillment.' }
+          ]}
+        />
+
         <Paper 
-          elevation={24} 
+          elevation={24}
           sx={{ 
             bgcolor: 'transparent', 
             borderRadius: '20px', 

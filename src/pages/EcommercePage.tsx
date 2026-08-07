@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Box, Container, Typography, Button, Paper, Chip, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import KeyInsights from '../components/KeyInsights';
 import './EcommercePage.scss'; 
 import screenRec from '../assets/Screen Recording.mp4';
 
@@ -37,9 +38,18 @@ const EcommercePage = () => {
             A fully functional e-commerce application built with the MERN stack. 
             Features include dynamic product browsing, a functional shopping cart, 
             search filtering, and a seamless checkout flow. The video below demonstrates 
-            the user journey from product selection to order placement.
+the user journey from product selection to order placement.
           </Typography>
         </Box>
+
+        <KeyInsights
+          insights={[
+            { text: 'A functional shopping cart with dynamic quantity updates provides a smooth, intuitive purchase flow.' },
+            { text: 'Search filtering helps users quickly find products by name or category, improving discoverability.' },
+            { text: 'A responsive MERN architecture keeps the frontend fast and the backend API scalable.' },
+            { text: 'A seamless checkout journey reduces friction and improves the overall user experience.' }
+          ]}
+        />
 
         <Box className="video-section animate-entry delay-2">
           <Typography variant="h5" className="section-heading">

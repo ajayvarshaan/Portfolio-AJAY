@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Box, Container, Typography, Button, Paper, Chip, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import KeyInsights from '../components/KeyInsights';
 import './EcommercePage.scss'; 
 import productReviewVideo from '../assets/Screen Recording 2026-03-08 181806.mp4';
 
@@ -40,6 +41,15 @@ const WellnessPage = () => {
             and view aggregated ratings with seamless API integration.
           </Typography>
         </Box>
+
+        <KeyInsights
+          insights={[
+            { text: 'Real-time product ratings update instantly, giving users immediate feedback on product quality.' },
+            { text: 'User feedback management allows moderators to curate and organize reviews effectively.' },
+            { text: 'Review filtering helps shoppers find relevant feedback by rating, date, or category.' },
+            { text: 'Seamless API integration keeps data synchronized between the frontend and backend.' }
+          ]}
+        />
 
         <Box className="video-section animate-entry delay-2">
           <Typography variant="h5" className="section-heading">

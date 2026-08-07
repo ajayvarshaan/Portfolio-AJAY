@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import KeyInsights from '../components/KeyInsights';
 import './HospitalPage.scss';
 import h1 from '../assets/1.jpg';
 import h2 from '../assets/2.jpg';
@@ -72,6 +73,15 @@ const HospitalPage = () => {
             management interfaces.
           </Typography>
         </Box>
+
+        <KeyInsights
+          insights={[
+            { text: 'Centralized patient record management improves data accuracy and reduces administrative overhead.' },
+            { text: 'Streamlined appointment booking connects patients with doctors and reduces scheduling conflicts.' },
+            { text: 'Dashboard analytics give hospital staff actionable insights into operations and patient load.' },
+            { text: 'A responsive, mobile-friendly interface ensures accessibility across devices for staff and patients.' }
+          ]}
+        />
 
         <Box
           className="animate-entry delay-2"
