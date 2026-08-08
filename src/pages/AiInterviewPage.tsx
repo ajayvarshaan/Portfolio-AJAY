@@ -8,9 +8,12 @@ import InsightsIcon from '@mui/icons-material/Insights';
 import QuizIcon from '@mui/icons-material/Quiz';
 import { Link } from 'react-router-dom';
 import KeyInsights from '../components/KeyInsights';
+import { useGsapReveal } from '../hooks/useGsapReveal';
 import './AiInterviewPage.scss';
 
 const AiInterviewPage = () => {
+  const revealRef = useGsapReveal();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -39,18 +42,19 @@ const AiInterviewPage = () => {
   ];
 
   return (
-    <Box className="ai-interview-page">
+    <Box className="ai-interview-page" ref={revealRef}>
       <Container maxWidth="xl">
         <Button
           component={Link}
           to="/"
           startIcon={<ArrowBackIcon />}
-          className="back-btn animate-entry"
+          className="back-btn"
+          data-reveal
         >
           Back to Portfolio
         </Button>
 
-        <Box className="animate-entry delay-1">
+        <Box data-reveal>
           <Typography variant="h2" className="page-title">
             AI Interview Preparation
           </Typography>
@@ -74,21 +78,22 @@ const AiInterviewPage = () => {
             endIcon={<LaunchIcon />}
             href="https://ai-interview-preparation-app-front.onrender.com"
             target="_blank"
-            className="live-btn animate-entry delay-1"
+            className="live-btn"
+            data-reveal
           >
             Visit Live Site
           </Button>
         </Box>
 
-        <Box className="features-section animate-entry delay-2">
-          <Typography variant="h5" className="section-heading">
+        <Box className="features-section" data-reveal>
+          <Typography variant="h5" className="section-heading" data-reveal>
             Key AI Features
           </Typography>
 
           <Grid container spacing={3}>
             {features.map((feature, index) => (
               <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
-                <Card className="feature-card">
+                <Card className="feature-card" data-reveal>
                   <CardContent>
                     <Box className="feature-icon">{feature.icon}</Box>
                     <Typography variant="h6" className="feature-title">

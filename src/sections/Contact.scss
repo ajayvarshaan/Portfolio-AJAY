@@ -1,35 +1,67 @@
 @use '../styles/variables' as *;
 
 .contact-section {
-  padding: 80px 0;
-  background: linear-gradient(to bottom, $bg-dark,($bg-dark, 3%));
+  @include section-padding;
+  background: linear-gradient(to bottom, $bg-dark, rgba($bg-dark, 0.9));
   text-align: center;
+  position: relative;
 
-  @media (max-width: 600px) {
-    padding: 60px 0;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba($secondary-color, 0.12), transparent 70%);
+    filter: blur(70px);
+    pointer-events: none;
   }
 
   .section-title {
     color: white;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
 
     @media (max-width: 600px) {
       font-size: 2rem;
       margin-bottom: 30px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-color, $secondary-color);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba($primary-color, 0.4);
     }
   }
 
   .contact-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    border-radius: $radius-xl;
     padding: 60px 40px;
     backdrop-filter: blur(10px);
+    position: relative;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+
+    &:hover {
+      border-color: rgba($primary-color, 0.3);
+      box-shadow: $shadow-lg;
+    }
 
     @media (max-width: 600px) {
       padding: 30px 20px;
-      border-radius: 16px;
+      border-radius: $radius-lg;
     }
 
     .contact-text {
@@ -52,7 +84,7 @@
       border-radius: 50px;
       background: rgba($primary-color, 0.1);
       border: 1px solid rgba($primary-color, 0.2);
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
 
       @media (max-width: 600px) {
         padding: 10px 16px;
@@ -81,8 +113,9 @@
 
       &:hover {
         background: rgba($primary-color, 0.2);
-        transform: translateY(-2px);
-        
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.2);
+
         a {
           color: $primary-color;
         }
@@ -92,17 +125,19 @@
     .social-btn {
       color: $text-secondary;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
 
       @media (max-width: 600px) {
         padding: 8px;
         min-width: 40px;
       }
-      
+
       &:hover {
         color: $primary-color;
         border-color: $primary-color;
-        background: rgba($primary-color, 0.1);
-        transform: translateY(-3px);
+        background: rgba($primary-color, 0.12);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 4px 16px rgba($primary-color, 0.3);
       }
     }
   }

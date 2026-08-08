@@ -1,60 +1,118 @@
 @use '../styles/variables' as *;
-@use '../styles/animations' as *;
 
 .experience-section {
-  padding: 80px 0;
+  @include section-padding;
+  position: relative;
 
-  @media (max-width: 600px) {
-    padding: 60px 0;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -15%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba($secondary-color, 0.12), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
   }
 
   .section-title {
     margin-bottom: 40px;
-    font-weight: 700;
+    font-weight: 800;
     position: relative;
     display: inline-block;
-    
+
     @media (max-width: 600px) {
       font-size: 2rem;
       margin-bottom: 30px;
     }
-    
+
     &::after {
       content: '';
       position: absolute;
       bottom: -10px;
       left: 0;
-      width: 60px;
+      width: 64px;
       height: 4px;
-      background: $primary-color;
+      background: linear-gradient(90deg, $primary-color, $secondary-color);
       border-radius: 2px;
+      box-shadow: 0 0 10px rgba($primary-color, 0.4);
+    }
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: relative;
+    padding-left: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, $primary-color, $secondary-color);
+      opacity: 0.5;
     }
   }
 
   .experience-card {
     @include glass-effect;
-    padding: 30px;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    padding: 30px 30px 30px 40px;
+    border-radius: $radius-lg;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    overflow: hidden;
 
     @media (max-width: 600px) {
-      padding: 20px;
+      padding: 20px 20px 20px 28px;
+      margin-left: 10px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, $primary-color, $secondary-color);
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     &:hover {
-      transform: translateY(-5px);
-      border-color: $primary-color;
+      transform: translateY(-6px) translateX(6px);
+      border-color: rgba($primary-color, 0.4);
+      box-shadow: $shadow-lg;
+
+      &::before {
+        opacity: 1;
+      }
     }
 
     .card-header {
       margin-bottom: 20px;
-      
+
+      h5 {
+        font-weight: 700;
+      }
+
       .duration {
-        font-family: 'Fira Code', monospace;
+        font-family: $font-mono;
         color: $text-secondary;
-        display: block;
+        display: inline-block;
         margin-top: 5px;
         font-size: 0.875rem;
+        background: rgba($primary-color, 0.08);
+        padding: 3px 10px;
+        border-radius: 20px;
+        border: 1px solid rgba($primary-color, 0.2);
 
         @media (max-width: 600px) {
           font-size: 0.8rem;
@@ -65,7 +123,7 @@
     .job-description {
       list-style: none;
       padding: 0;
-      
+
       li {
         position: relative;
         padding-left: 20px;
@@ -77,7 +135,7 @@
           font-size: 0.875rem;
           padding-left: 18px;
         }
-        
+
         &::before {
           content: '▹';
           position: absolute;

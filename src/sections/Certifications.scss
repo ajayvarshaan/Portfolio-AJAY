@@ -1,12 +1,8 @@
 @use '../styles/variables' as *;
 
 .certifications-section {
-  padding: 80px 0;
-  background-color: ($bg-dark, 2%);
-
-  @media (max-width: 600px) {
-    padding: 60px 0;
-  }
+  @include section-padding;
+  position: relative;
 
   .section-icon {
     color: $primary-color;
@@ -19,10 +15,28 @@
 
   .section-heading {
     color: white;
-    font-weight: 700;
+    font-weight: 800;
 
     @media (max-width: 600px) {
       font-size: 2rem;
+    }
+  }
+
+  .category-heading {
+    color: $text-secondary;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, $primary-color, transparent);
     }
   }
 
@@ -30,24 +44,25 @@
     height: 100%;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: $radius-md;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     display: flex;
     flex-direction: column;
 
     &:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px) scale(1.01);
       border-color: $primary-color;
       background: rgba(255, 255, 255, 0.06);
+      box-shadow: $shadow-lg;
 
       .cert-image-preview .overlay {
         opacity: 1;
       }
-      
+
       .cert-image-preview img {
-        transform: scale(1.05);
+        transform: scale(1.06);
       }
     }
 
@@ -67,7 +82,7 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
-        opacity: 0.8;
+        opacity: 0.85;
       }
 
       .overlay {
@@ -76,16 +91,17 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.55);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: 2;
+        backdrop-filter: blur(2px);
       }
     }
-    
+
     .cert-category {
       color: $secondary-color;
       text-transform: uppercase;
@@ -123,9 +139,9 @@
 
     .cert-date {
       color: rgba($primary-color, 0.8);
-      font-family: monospace;
+      font-family: $font-mono;
       font-size: 0.85rem;
-      margin-top: auto; 
+      margin-top: auto;
       padding-top: 10px;
 
       @media (max-width: 600px) {

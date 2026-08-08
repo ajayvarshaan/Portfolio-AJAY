@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import { BrowserRouter } from 'react-router-dom'; 
-import './index.css'; 
+import { BrowserRouter } from 'react-router-dom';
+import './styles/main.scss';
+import './App.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
- 
-    <BrowserRouter basename="/Portfolio-AJAY">  
+    <BrowserRouter basename="/Portfolio-AJAY">
       <App />
     </BrowserRouter>
   </React.StrictMode>,

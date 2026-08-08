@@ -12,10 +12,12 @@ import {
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import CloseIcon from '@mui/icons-material/Close';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useGsapReveal } from '../hooks/useGsapReveal';
 import { resumeData } from '../data/resumeData';
 import './Certifications.scss';
 
 const Certifications = () => {
+  const revealRef = useGsapReveal();
   const certifications = resumeData.certifications || [];
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -32,11 +34,11 @@ const Certifications = () => {
     setSelectedImage(null);
   };
 
-  return (
-    <Box id="certifications" className="certifications-section">
+return (
+    <Box id="certifications" className="certifications-section" ref={revealRef}>
       <Container maxWidth="xl">
 
-        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }} data-reveal>
           <WorkspacePremiumIcon className="section-icon" />
           <Typography variant="h3" className="section-heading">
             Certifications
@@ -70,11 +72,12 @@ const Certifications = () => {
                   gap: 4
                 }}
               >
-                {categoryCerts.map((cert, index) => (
+{categoryCerts.map((cert, index) => (
                   <Paper
                     key={index}
                     elevation={0}
                     className="cert-card"
+                    data-reveal
                     onClick={() => handleOpen(cert.image)}
                   >
                     <Box className="cert-image-preview">

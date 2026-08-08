@@ -1,5 +1,4 @@
 @use '../styles/variables' as *;
-@use '../styles/animations' as *;
 
 .ai-interview-page {
   min-height: 100vh;
@@ -7,14 +6,6 @@
   padding-top: 80px;
   padding-bottom: 120px;
   overflow-x: hidden;
-
-  .animate-entry {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
 
   .back-btn {
     color: $text-secondary;

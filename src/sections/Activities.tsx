@@ -1,17 +1,19 @@
 import { Box, Container, Typography, Paper, Stack } from '@mui/material';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+import { useGsapReveal } from '../hooks/useGsapReveal';
 import { resumeData } from '../data/resumeData';
 import './Activities.scss';
 
 const Activities = () => {
   const activities = resumeData.activities || [];
+  const revealRef = useGsapReveal();
 
   return (
-    <Box id="activities" className="activities-section">
+    <Box id="activities" className="activities-section" ref={revealRef}>
       <Container maxWidth="xl">
 
-        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 6 }}>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 6 }} data-reveal>
           <LocalActivityIcon className="section-icon" />
           <Typography variant="h3" className="section-heading">
             Activities
@@ -30,7 +32,7 @@ const Activities = () => {
           }}
         >
           {activities.map((activity, index) => (
-            <Paper key={index} elevation={0} className="activity-card">
+            <Paper key={index} elevation={0} className="activity-card" data-reveal>
               <Box className="activity-header">
                 <Typography variant="h6" className="activity-role">
                   {activity.role}

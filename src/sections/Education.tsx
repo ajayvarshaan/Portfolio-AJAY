@@ -1,3 +1,4 @@
+import { useGsapReveal } from '../hooks/useGsapReveal';
 import { Box, Container, Typography, Paper, Stack } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -6,16 +7,18 @@ import { resumeData } from '../data/resumeData';
 import './Education.scss';
 
 const Education = () => {
+  const revealRef = useGsapReveal();
+
   return (
-    <Box id="education" className="education-section">
+    <Box id="education" className="education-section" ref={revealRef}>
       <Container maxWidth="lg">
-        <Typography variant="h3" className="section-title">
+        <Typography variant="h3" className="section-title" data-reveal>
           Education
         </Typography>
 
         <Box className="timeline-container">
           {resumeData.education.map((edu, index) => (
-            <Paper key={index} className="education-card" elevation={3}>
+            <Paper key={index} className="education-card" elevation={3} data-reveal>
               <Box className="card-icon">
                 <SchoolIcon fontSize="large" />
               </Box>

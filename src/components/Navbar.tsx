@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  AppBar, 
-  Toolbar, 
-  Button, 
-  IconButton, 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemButton, 
-  ListItemText, 
-  Box, 
-  useScrollTrigger, 
-  Slide 
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Box,
+  useScrollTrigger,
+  Slide,
+  Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -20,7 +21,7 @@ import './Navbar.scss';
 
 interface Props {
   window?: () => Window;
-  children?: React.ReactElement; 
+  children?: React.ReactElement;
 }
 
 function HideOnScroll(props: Props) {
@@ -37,6 +38,7 @@ const Navbar = (props: Props) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -59,25 +61,27 @@ const Navbar = (props: Props) => {
     <HideOnScroll {...props}>
       <AppBar component="nav" className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          
           <ScrollLink to="hero" smooth={true} duration={500} style={{ cursor: 'pointer' }}>
-            <Box component="span" sx={{ fontWeight: 800, fontSize: '1.5rem', color: '#00bcd4' }}>
-              AV
+            <Box className="logo-box">
+              <Typography component="span" className="logo">
+                AJ
+              </Typography>
+              <Box className="logo-bar" />
             </Box>
           </ScrollLink>
 
-          <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+          <Box className="desktop-menu" sx={{ display: { xs: 'none', md: 'block' } }}>
             {navItems.map((item) => (
-              <ScrollLink 
-                key={item.name} 
-                to={item.link} 
-                smooth={true} 
-                duration={500} 
+              <ScrollLink
+                key={item.name}
+                to={item.link}
+                smooth={true}
+                duration={500}
                 offset={-70}
                 spy={true}
                 activeClass="active-nav"
               >
-                <Button sx={{ color: 'white', ml: 2, fontWeight: 500 }}>
+                <Button className="nav-link" sx={{ color: 'white', ml: 2, fontWeight: 500 }}>
                   {item.name}
                 </Button>
               </ScrollLink>
@@ -89,6 +93,7 @@ const Navbar = (props: Props) => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
+            className="menu-btn"
             sx={{ display: { md: 'none' } }}
           >
             <MenuIcon />
@@ -100,33 +105,35 @@ const Navbar = (props: Props) => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
+          className="mobile-drawer"
           sx={{
-            display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 250, backgroundColor: '#0a1929' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280, backgroundColor: '#0a1929', backgroundImage: 'none' },
           }}
         >
-          <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', p: 2 }}>
-             <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
-               <IconButton onClick={handleDrawerToggle} sx={{ color: 'white' }}>
-                 <CloseIcon />
-               </IconButton>
-             </Box>
-             
-             <List>
-              {navItems.map((item) => (
-                <ListItem key={item.name} disablePadding>
-                  <ScrollLink 
-                    to={item.link} 
-                    smooth={true} 
-                    duration={500} 
+          <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', p: 2, height: '100%' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+              <IconButton onClick={handleDrawerToggle} sx={{ color: 'white' }}>
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
+            <List className="drawer-list">
+{navItems.map((item) => (
+                <ListItem key={item.name} disablePadding sx={{ mb: 1 }}>
+                  <ScrollLink
+                    to={item.link}
+                    smooth={true}
+                    duration={500}
                     offset={-70}
+                    spy={true}
+                    activeClass="active-nav"
                     onClick={handleDrawerToggle}
                     style={{ width: '100%' }}
                   >
-                    <ListItemButton sx={{ textAlign: 'center' }}>
-                      <ListItemText 
-                        primary={item.name} 
-                        sx={{ color: 'white' }} 
+                    <ListItemButton sx={{ textAlign: 'center', borderRadius: 2 }}>
+                      <ListItemText
+                        primary={item.name}
+                        sx={{ color: 'white' }}
                         primaryTypographyProps={{ fontWeight: 500 }}
                       />
                     </ListItemButton>

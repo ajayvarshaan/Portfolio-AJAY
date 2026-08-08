@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   Box,
   Container,
@@ -13,19 +14,54 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import CodeIcon from '@mui/icons-material/Code';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { useGsapReveal } from '../hooks/useGsapReveal';
 import { resumeData } from '../data/resumeData';
 import './Projects.scss';
 
 const Projects = () => {
+  const revealRef = useGsapReveal();
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  // 3D tilt on hover for project cards (desktop only, respects reduced motion)
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (window.innerWidth < 900) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    gsap.to(card, {
+      rotationY: x * 10,
+      rotationX: -y * 10,
+      transformPerspective: 900,
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    gsap.to(e.currentTarget, {
+      rotationY: 0,
+      rotationX: 0,
+      transformPerspective: 900,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+  };
+
   return (
-    <Box id="projects" className="projects-section">
+    <Box id="projects" className="projects-section" ref={revealRef}>
       <Container maxWidth="xl">
 
-        <Typography variant="h3" className="section-header">
+        <Typography variant="h3" className="section-header" data-reveal>
           Selected Works
         </Typography>
 
         <Box
+          ref={gridRef}
           className="projects-grid"
           sx={{
             display: 'grid',
@@ -38,8 +74,14 @@ const Projects = () => {
           }}
         >
           {resumeData.projects.map((project, index) => (
-            <Card key={index} className="project-card">
-              <Box className="card-gradient-border" />
+            <Card
+              key={index}
+              className="project-card"
+              data-reveal
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-gradient-border" />
 
               {project.image && (
                 project.internalLink ? (

@@ -6,6 +6,7 @@ import InsightsIcon from '@mui/icons-material/Insights';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import StarIcon from '@mui/icons-material/Star';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useGsapReveal } from '../hooks/useGsapReveal';
 import './KeyInsights.scss';
 
 const DEFAULT_ICONS = [
@@ -28,16 +29,18 @@ interface KeyInsightsProps {
 }
 
 const KeyInsights = ({ title = 'Key Insights', insights }: KeyInsightsProps) => {
+  const revealRef = useGsapReveal();
+
   return (
-    <Box className="key-insights animate-entry delay-2">
-      <Typography variant="h5" className="section-heading">
+    <Box className="key-insights" ref={revealRef}>
+      <Typography variant="h5" className="section-heading" data-reveal>
         {title}
       </Typography>
       <Box className="insights-grid">
         {insights.map((insight, index) => {
           const Icon = insight.icon || DEFAULT_ICONS[index % DEFAULT_ICONS.length];
           return (
-            <Box key={index} className="insight-card">
+            <Box key={index} className="insight-card" data-reveal>
               <Box className="insight-icon">
                 <Icon />
               </Box>

@@ -4,15 +4,6 @@
 .key-insights {
   margin-bottom: 60px;
 
-  &.animate-entry {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  &.delay-2 {
-    animation-delay: 0.2s;
-  }
-
   .section-heading {
     color: white;
     margin-bottom: 24px;

@@ -1,18 +1,21 @@
 import { Box, Container, Typography, Stack, IconButton, Tooltip } from '@mui/material';
+import { useGsapReveal } from '../hooks/useGsapReveal';
 import { resumeData } from '../data/resumeData';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import './Contact.scss';
 
 const Contact = () => {
+  const revealRef = useGsapReveal();
+
   return (
-    <Box id="contact" className="contact-section">
+    <Box id="contact" className="contact-section" ref={revealRef}>
       <Container maxWidth="md">
-        <Typography variant="h3" className="section-title">
+        <Typography variant="h3" className="section-title" data-reveal>
           Get In Touch
         </Typography>
 
-        <Box className="contact-card">
+        <Box className="contact-card" data-reveal>
           <Stack spacing={4} alignItems="center">
             <Typography variant="body1" className="contact-text">
               I am currently looking for new opportunities. Whether you have a question or just want to say hi, feel free to reach out!

@@ -1,0 +1,15 @@
+@use '../styles/variables' as *;
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  transform-origin: left center;
+  transform: scaleX(0);
+  z-index: 1501;
+  box-shadow: 0 0 12px rgba($primary-color, 0.6);
+}
+

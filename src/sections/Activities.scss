@@ -1,11 +1,7 @@
 @use '../styles/variables' as *;
 .activities-section {
-  padding: 80px 0;
+  @include section-padding;
   background-color: $bg-dark;
-
-  @media (max-width: 600px) {
-    padding: 60px 0;
-  }
 
   .section-icon {
     color: $primary-color;

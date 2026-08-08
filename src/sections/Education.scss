@@ -1,17 +1,14 @@
 @use '../styles/variables' as *;
 
 .education-section {
-  padding: 80px 0;
+  @include section-padding;
   background-color: $bg-dark;
+  position: relative;
 
-  @media (max-width: 600px) {
-    padding: 60px 0;
-  }
-  
   .section-title {
     text-align: center;
     color: white;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 60px;
     position: relative;
     display: inline-block;
@@ -27,11 +24,13 @@
       content: '';
       position: absolute;
       bottom: -10px;
-      left: 0;
-      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
       height: 4px;
-      background: $primary-color;
+      background: linear-gradient(90deg, $primary-color, $secondary-color);
       border-radius: 2px;
+      box-shadow: 0 0 10px rgba($primary-color, 0.4);
     }
   }
 
@@ -50,15 +49,15 @@
     &::before {
       content: '';
       position: absolute;
-      left: 40px; 
+      left: calc(60px / 2);
       top: 20px;
       bottom: 20px;
       width: 2px;
-      background: rgba(255, 255, 255, 0.1);
+      background: linear-gradient(180deg, rgba($primary-color, 0.3), rgba($secondary-color, 0.3));
       z-index: 0;
 
       @media (max-width: 600px) {
-        left: 20px;
+        left: calc(40px / 2);
       }
     }
   }
@@ -67,32 +66,34 @@
     position: relative;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: $radius-lg;
     padding: 30px;
     margin-left: 80px;
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     z-index: 1;
 
     @media (max-width: 600px) {
       margin-left: 50px;
-      padding: 16px;
+      padding: 18px;
       border-radius: 12px;
     }
 
     &:hover {
       transform: translateX(10px);
       background: rgba(255, 255, 255, 0.05);
-      border-color: rgba($primary-color, 0.3);
+      border-color: rgba($primary-color, 0.35);
+      box-shadow: $shadow-md;
 
       @media (max-width: 600px) {
         transform: translateX(5px);
       }
-      
+
       .card-icon {
-        background: $primary-color;
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
         color: white;
-        box-shadow: 0 0 15px rgba($primary-color, 0.5);
+        box-shadow: 0 0 20px rgba($primary-color, 0.5);
+        transform: translateY(-50%) rotate(360deg);
       }
     }
 
@@ -110,13 +111,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
 
       @media (max-width: 600px) {
         width: 40px;
         height: 40px;
         left: -50px;
-        
+
         svg {
           font-size: 1.2rem;
         }
@@ -147,7 +148,7 @@
 
       .meta-info {
         color: #94a3b8;
-        
+
         .meta-item {
           display: flex;
           align-items: center;
@@ -165,7 +166,7 @@
           background: rgba($primary-color, 0.1);
           padding: 4px 12px;
           border-radius: 20px;
-          border: 1px solid rgba($primary-color, 0.2);
+          border: 1px solid rgba($primary-color, 0.25);
 
           @media (max-width: 600px) {
             padding: 3px 10px;
