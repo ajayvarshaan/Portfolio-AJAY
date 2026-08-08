@@ -8,7 +8,7 @@ import {
   CardActions,
   Chip,
   Button,
-  CardMedia
+  CardMedia,
 } from '@mui/material';
 import LaunchIcon from '@mui/icons-material/Launch';
 import CodeIcon from '@mui/icons-material/Code';
@@ -23,7 +23,6 @@ const Projects = () => {
   const revealRef = useGsapReveal();
   const gridRef = useRef<HTMLDivElement>(null);
 
-  // 3D tilt on hover for project cards (desktop only, respects reduced motion)
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (window.innerWidth < 900) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -34,8 +33,8 @@ const Projects = () => {
     const y = (e.clientY - rect.top) / rect.height - 0.5;
 
     gsap.to(card, {
-      rotationY: x * 10,
-      rotationX: -y * 10,
+      rotationY: x * 8,
+      rotationX: -y * 8,
       transformPerspective: 900,
       duration: 0.4,
       ease: 'power2.out',
@@ -55,7 +54,6 @@ const Projects = () => {
   return (
     <Box id="projects" className="projects-section" ref={revealRef}>
       <Container maxWidth="xl">
-
         <Typography variant="h3" className="section-header" data-reveal>
           Selected Works
         </Typography>
@@ -63,14 +61,15 @@ const Projects = () => {
         <Box
           ref={gridRef}
           className="projects-grid"
+          data-reveal-group
           sx={{
             display: 'grid',
             gridTemplateColumns: {
               xs: '1fr',
               md: 'repeat(2, 1fr)',
-              lg: 'repeat(3, 1fr)'
+              lg: 'repeat(3, 1fr)',
             },
-            gap: 4
+            gap: 4,
           }}
         >
           {resumeData.projects.map((project, index) => (
@@ -83,8 +82,8 @@ const Projects = () => {
             >
               <div className="card-gradient-border" />
 
-              {project.image && (
-                project.internalLink ? (
+              {project.image &&
+                (project.internalLink ? (
                   <Link to={project.internalLink} style={{ textDecoration: 'none' }}>
                     <CardMedia
                       component="img"
@@ -103,8 +102,7 @@ const Projects = () => {
                     className="project-image"
                     sx={{ cursor: 'default' }}
                   />
-                )
-              )}
+                ))}
 
               <CardContent className="content-area">
                 {!project.image && (
@@ -123,12 +121,7 @@ const Projects = () => {
 
                 <Box className="tech-stack">
                   {project.tech.map((tech) => (
-                    <Chip
-                      key={tech}
-                      label={tech}
-                      className="tech-chip"
-                      size="small"
-                    />
+                    <Chip key={tech} label={tech} className="tech-chip" size="small" />
                   ))}
                 </Box>
               </CardContent>
@@ -161,7 +154,6 @@ const Projects = () => {
             </Card>
           ))}
         </Box>
-
       </Container>
     </Box>
   );

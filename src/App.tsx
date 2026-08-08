@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { Box, ThemeProvider, createTheme, CssBaseline, Container, Typography, Stack } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress';
 import CustomCursor from './components/CustomCursor';
+import CursorGlow from './components/CursorGlow';
+import ParticleField from './components/ParticleField';
+import Preloader from './components/Preloader';
 import Hero from './sections/Hero';
 import Experience from './sections/Experience';
 import Education from './sections/Education';
@@ -67,16 +71,21 @@ const theme = createTheme({
 });
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
       <ScrollProgress />
       <CustomCursor />
+      <CursorGlow />
       <Routes>
 
         <Route path="/" element={
           <>
             <Navbar />
+            <ParticleField />
             <Box component="main" sx={{ position: 'relative' }}>
               <Hero />
               <Experience />

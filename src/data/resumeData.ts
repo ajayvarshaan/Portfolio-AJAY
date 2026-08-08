@@ -25,7 +25,7 @@ import ecomImg from '../assets/mini.png';
 import productReviewImg from '../assets/write-product-reviews.webp';
 import wellnessVideo from '../assets/Screen Recording 2026-03-08 181806.mp4';
 import aiInterviewImg from '../assets/ai-interview.jpg';
-import aiEventBookingImg from '../assets/web-1.png';
+import aiEventBookingImg from '../assets/event.png';
 
 export const resumeData = {
   personal: {
@@ -170,28 +170,30 @@ export const resumeData = {
     }
   ],
   projects: [
-    {
-      title: "Blinkit Business Insights",
-      tech: ["Power BI", "DAX"],
-      description: "Analyzed sales performance and delivery efficiency. Created DAX measures for profitability and frequency.",
-      internalLink: "/projects/blinkit",
-      image: blinkitImg 
+       {
+      title: "AI Event Booking System",
+      tech: ["React.js", "Node.js", "MongoDB", "REST API", "Google Auth", "AI Integration"],
+      description: "AI-powered event booking platform with intelligent search, personalized recommendations, smart pricing, demand forecasting, event creation, and booking management.",
+      internalLink: "/projects/ai-event-booking",
+      image: aiEventBookingImg
     },
-    {
-      title: "Pizza Sales Analytics",
-      tech: ["Power BI", "SQL", "Python"],
-      description: "Performed EDA to uncover peak order times and best sellers. Created interactive dashboard with slicers.",
-      internalLink: "/projects/pizza",
-      image: pizzaImg
+       {
+      title: "AI Interview Preparation",
+      tech: ["React.js"," Node.js", "MongoDB", "Tailwind CSS", "Framer Motion", "Google Gemini API", "JWT",
+"REST API"],
+      description: "AI-powered interview prep platform with role-based question generation, real-time feedback, and performance tracking.",
+      internalLink: "/projects/ai-interview",
+      image: aiInterviewImg
     },
-    {
-      title: "Meta Ads Dashboard",
-      tech: ["Power BI", "DAX"],
-      description: "Analytical dashboard for evaluating ad campaigns. Computed KPIs like CTR, CPC, and ROAS.",
-      internalLink: "/projects/meta-ads",
-      image: metaImg
+        {
+      title: "Product Review System",
+      tech: ["MERN STACK"],
+      description: "Interactive product review platform with real-time ratings, user feedback management, and responsive design.",
+      internalLink: "/projects/product-review",
+      image: productReviewImg,
+      video: wellnessVideo
     },
-    {
+        {
       title: "HR Landing Page",
       tech: ["React (TS)", "MUI", "SCSS"],
       description: "Designed a modern HR landing page with animated layouts and onboarding visuals.",
@@ -216,28 +218,30 @@ export const resumeData = {
       externalLink: ""
     },
     {
-      title: "Product Review System",
-      tech: ["MERN STACK"],
-      description: "Interactive product review platform with real-time ratings, user feedback management, and responsive design.",
-      internalLink: "/projects/product-review",
-      image: productReviewImg,
-      video: wellnessVideo
+      title: "Blinkit Business Insights",
+      tech: ["Power BI", "DAX"],
+      description: "Analyzed sales performance and delivery efficiency. Created DAX measures for profitability and frequency.",
+      internalLink: "/projects/blinkit",
+      image: blinkitImg 
     },
     {
-      title: "AI Interview Preparation",
-      tech: ["React.js"," Node.js", "MongoDB", "Tailwind CSS", "Framer Motion", "Google Gemini API", "JWT",
-"REST API"],
-      description: "AI-powered interview prep platform with role-based question generation, real-time feedback, and performance tracking.",
-      internalLink: "/projects/ai-interview",
-      image: aiInterviewImg
+      title: "Pizza Sales Analytics",
+      tech: ["Power BI", "SQL", "Python"],
+      description: "Performed EDA to uncover peak order times and best sellers. Created interactive dashboard with slicers.",
+      internalLink: "/projects/pizza",
+      image: pizzaImg
     },
     {
-      title: "AI Event Booking System",
-      tech: ["React.js", "Node.js", "MongoDB", "REST API", "Google Auth", "AI Integration"],
-      description: "AI-powered event booking platform with intelligent search, personalized recommendations, smart pricing, demand forecasting, event creation, and booking management.",
-      internalLink: "/projects/ai-event-booking",
-      image: aiEventBookingImg
-    }
+      title: "Meta Ads Dashboard",
+      tech: ["Power BI", "DAX"],
+      description: "Analytical dashboard for evaluating ad campaigns. Computed KPIs like CTR, CPC, and ROAS.",
+      internalLink: "/projects/meta-ads",
+      image: metaImg
+    },
+
+
+ 
+ 
   ],
   skills: {
     "Web Development": [

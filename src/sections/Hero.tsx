@@ -1,13 +1,66 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, Container, Typography, Button, IconButton, Stack } from '@mui/material';
 import { resumeData } from '../data/resumeData';
 import { Link as ScrollLink } from 'react-scroll';
 import gsap from 'gsap';
+import useGsapMagnetic from '../hooks/useGsapMagnetic';
 import './Hero.scss';
 
 import profileImage from '../assets/me.jpg';
 
+// Role phrases cycled by the typewriter effect.
+const ROLE_PHRASES = [
+  'AI FULL-STACK DEVELOPER & DATA ANALYST',
+  'BUILDER OF INTELLIGENT WEB EXPERIENCES',
+  'DATA STORYTELLER & UI/UX ENTHUSIAST',
+];
+
+// Split the name into individual character spans for a split-text reveal.
+const splitText = (text: string) =>
+  text.split('').map((char, i) => (
+    <span className="hero-char" key={i}>
+      {char === ' ' ? '\u00A0' : char}
+    </span>
+  ));
+
 const Hero = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useGsapMagnetic<HTMLDivElement>(0.35);
+  const socialsRef = useGsapMagnetic<HTMLDivElement>(0.25);
+
+  // Typewriter state for the rotating role headline.
+  const [typed, setTyped] = useState('');
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+    if (prefersReduced) return;
+
+    let timeout: ReturnType<typeof setTimeout>;
+    const current = ROLE_PHRASES[phraseIndex % ROLE_PHRASES.length];
+
+    // Plain JS timing loop (no GSAP) keeps this decoupled and light.
+    if (!deleting) {
+      if (typed.length < current.length) {
+        timeout = setTimeout(() => setTyped(current.slice(0, typed.length + 1)), 55);
+      } else {
+        timeout = setTimeout(() => setDeleting(true), 1800);
+      }
+    } else {
+      if (typed.length > 0) {
+        timeout = setTimeout(() => setTyped(current.slice(0, typed.length - 1)), 28);
+      } else {
+        setDeleting(false);
+        setPhraseIndex((i) => (i + 1) % ROLE_PHRASES.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [typed, deleting, phraseIndex]);
+
   useEffect(() => {
     const prefersReduced = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
@@ -15,25 +68,29 @@ const Hero = () => {
     if (prefersReduced) return;
 
     const ctx = gsap.context(() => {
-      // Intro timeline
+      // 1) Split-text reveal: stagger the name characters in.
+      gsap.set('.hero-char', { yPercent: 120, opacity: 0 });
+      gsap.set('.role-partial', { opacity: 0, y: 20 });
+
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      tl.fromTo(
-        '.greeting',
-        { opacity: 0, y: 20, filter: 'blur(6px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6 }
-      )
+      tl.to('.hero-char', {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.035,
+      })
         .fromTo(
-          '.name-gradient',
-          { opacity: 0, y: 40, filter: 'blur(8px)' },
-          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8 },
-          '-=0.3'
+          '.greeting',
+          { opacity: 0, y: 20, filter: 'blur(6px)' },
+          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5 },
+          '-=0.4'
         )
         .fromTo(
-          '.role',
-          { opacity: 0, y: 30, filter: 'blur(6px)' },
-          { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6 },
-          '-=0.4'
+          '.role-partial',
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5 },
+          '-=0.3'
         )
         .fromTo(
           '.description',
@@ -49,12 +106,12 @@ const Hero = () => {
         )
         .fromTo(
           '.profile-image-wrapper',
-          { opacity: 0, scale: 0.6, rotate: -8 },
-          { opacity: 1, scale: 1, rotate: 0, duration: 1, ease: 'back.out(1.6)' },
-          '-=0.6'
+          { opacity: 0, scale: 0.5, rotate: -10 },
+          { opacity: 1, scale: 1, rotate: 0, duration: 1.1, ease: 'back.out(1.6)' },
+          '-=0.8'
         );
 
-      // Floating animation on the image wrapper (subtle)
+      // 2) Continuous floating on image + glow.
       gsap.to('.profile-image-wrapper', {
         y: -16,
         duration: 3.5,
@@ -62,25 +119,78 @@ const Hero = () => {
         repeat: -1,
         yoyo: true,
       });
+      gsap.to('.animated-border-glow', {
+        rotate: 360,
+        duration: 12,
+        ease: 'none',
+        repeat: -1,
+      });
 
-      // Gentle parallax on background glow
+      // 3) Parallax: hero content translates up slower, image + bg parallax.
       gsap.to('.hero-bg-glow', {
-        yPercent: 20,
-        xPercent: 10,
+        yPercent: 30,
+        xPercent: 15,
+        ease: 'none',
         scrollTrigger: {
-          trigger: '.hero-section',
+          trigger: sectionRef.current,
           start: 'top top',
           end: 'bottom top',
           scrub: true,
         },
       });
-    }, '.hero-section');
+      gsap.to('.profile-image-wrapper', {
+        y: -60,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+      gsap.to('.hero-content', {
+        y: -40,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+
+      // 4) Mouse-move tilt on the profile wrapper (desktop only).
+      const wrapper = sectionRef.current?.querySelector('.profile-image-wrapper');
+      if (wrapper && window.innerWidth >= 900) {
+        sectionRef.current?.addEventListener('mousemove', (e) => {
+          const rect = sectionRef.current!.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          gsap.to(wrapper, {
+            rotationY: x * 16,
+            rotationX: -y * 16,
+            transformPerspective: 800,
+            duration: 0.5,
+            ease: 'power2.out',
+          });
+        });
+        sectionRef.current?.addEventListener('mouseleave', () => {
+          gsap.to(wrapper, {
+            rotationY: 0,
+            rotationX: 0,
+            transformPerspective: 800,
+            duration: 0.6,
+            ease: 'power2.out',
+          });
+        });
+      }
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <Box id="hero" className="hero-section">
+    <Box id="hero" ref={sectionRef} className="hero-section">
       <div className="hero-bg-glow"></div>
 
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 } }}>
@@ -107,48 +217,60 @@ const Hero = () => {
               alignItems: { xs: 'center', md: 'flex-start' },
             }}
           >
-            <Typography variant="subtitle1" className="greeting">
+            <Typography variant="subtitle1" className="greeting" sx={{ overflow: 'hidden' }}>
               Hello, I am
             </Typography>
 
-            <Typography variant="h1" className="name-gradient">
-              {resumeData.personal.name}
+            <Typography
+              variant="h1"
+              className="name-gradient"
+              sx={{ overflow: 'hidden', paddingBottom: '0.15em' }}
+              aria-label={resumeData.personal.name}
+            >
+              {splitText(resumeData.personal.name)}
             </Typography>
 
-            <Typography variant="h2" className="role">
-              {resumeData.personal.role}
-            </Typography>
+            <Box className="role-line">
+              <Typography variant="h2" className="role role-partial" aria-label="AI Full-Stack Developer & Data Analyst">
+                {typed}
+                <span className="typing-caret" aria-hidden="true" />
+              </Typography>
+            </Box>
 
             <Typography variant="body1" className="description">
               {resumeData.personal.summary}
             </Typography>
 
-            <Stack direction="row" spacing={3} className="action-buttons">
-              <Button
-                component={ScrollLink}
-                to="contact"
-                smooth={true}
-                duration={500}
-                offset={-70}
-                variant="contained"
-                className="primary-btn"
-                sx={{ cursor: 'pointer' }}
-              >
-                Contact Me
-              </Button>
+<Stack direction="row" spacing={3} className="action-buttons">
+              <div className="magnetic-wrap" ref={ctaRef}>
+                <Button
+                  component={ScrollLink}
+                  to="contact"
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  variant="contained"
+                  className="primary-btn"
+                  sx={{ cursor: 'pointer' }}
+                >
+                  Contact Me
+                </Button>
+              </div>
 
-              <Stack direction="row" spacing={1}>
-                {resumeData.personal.socials.map((social) => (
-                  <IconButton
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    className="social-icon"
-                  >
-                    <social.icon />
-                  </IconButton>
-                ))}
-              </Stack>
+              <div className="magnetic-wrap" ref={socialsRef}>
+                <Stack direction="row" spacing={1} className="socials-row">
+                  {resumeData.personal.socials.map((social) => (
+                    <IconButton
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      className="social-icon"
+                    >
+                      <social.icon />
+                    </IconButton>
+                  ))}
+                </Stack>
+              </div>
             </Stack>
           </Box>
 

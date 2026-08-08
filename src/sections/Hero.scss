@@ -77,16 +77,13 @@
       }
     }
 
-    .name-gradient {
+.name-gradient {
       font-weight: 800;
       margin-bottom: 0.5rem;
       line-height: 1.08;
       font-size: 2.75rem;
-      background: linear-gradient(90deg, #ffffff 20%, $primary-light 60%, $primary-color 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
+      display: inline-block;
 
       @media (min-width: 600px) {
         font-size: 3.75rem;
@@ -95,14 +92,25 @@
       @media (min-width: 900px) {
         font-size: 4.75rem;
       }
+
+      .hero-char {
+        display: inline-block;
+        will-change: transform, opacity;
+        color: #ffffff;
+      }
     }
 
-    .role {
+    .role-line {
+      overflow: hidden;
+    }
+
+.role {
       color: $secondary-light;
       font-weight: 600;
       margin-bottom: 1.5rem;
       font-size: 1.15rem;
       letter-spacing: 0.5px;
+      min-height: 1.4em;
 
       @media (min-width: 600px) {
         font-size: 1.4rem;
@@ -110,6 +118,20 @@
 
       @media (min-width: 900px) {
         font-size: 1.75rem;
+      }
+
+      .typing-caret {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        margin-left: 4px;
+        background: $primary-color;
+        vertical-align: text-bottom;
+        animation: caretBlink 0.9s steps(1) infinite;
+
+        @media (prefers-reduced-motion: reduce) {
+          animation: none;
+        }
       }
     }
 
@@ -125,12 +147,18 @@
       }
     }
 
-    .action-buttons {
+.action-buttons {
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
 
       @media (min-width: 900px) {
         justify-content: flex-start;
+      }
+
+      .magnetic-wrap {
+        display: inline-block;
+        will-change: transform;
       }
 
       .primary-btn {
@@ -279,6 +307,16 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes caretBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 

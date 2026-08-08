@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Box, Container, Typography, Button, Paper, Chip, Stack, Grid, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, Button, Chip, Stack, Grid, Card, CardContent } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LaunchIcon from '@mui/icons-material/Launch';
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,7 +9,6 @@ import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import { Link } from 'react-router-dom';
 import KeyInsights from '../components/KeyInsights';
 import './AiEventBookingPage.scss';
-import aiEventBookingImg from '../assets/web-1.png';
 
 const AiEventBookingPage = () => {
   useEffect(() => {
@@ -109,22 +108,9 @@ comparison, and an admin dashboard with user activity tracking. Secure authentic
                     </Typography>
                   </CardContent>
                 </Card>
-              </Grid>
+</Grid>
             ))}
           </Grid>
-        </Box>
-
-        <Box className="image-section animate-entry delay-2">
-          <Typography variant="h5" className="section-heading">
-            Platform Overview
-          </Typography>
-
-          <Paper elevation={10} className="image-container">
-            <img
-              src={aiEventBookingImg}
-              alt="AI Event Booking System Platform Overview"
-            />
-          </Paper>
         </Box>
       </Container>
     </Box>
